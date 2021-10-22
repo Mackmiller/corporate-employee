@@ -17,7 +17,7 @@ Navigate your way through a series of corporate cliches for each hour of the 9am
 
 ## Wireframes
 
-coming soon.
+<img alt="wireframe image" src="wireframes-start.jpg" />
 
 ## MPV Goals
 
