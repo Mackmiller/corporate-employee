@@ -28,7 +28,7 @@ Initial wireframes to show flow of game.
 - analog clock on screen that moves according to what number scenario has been reached
 - minimum of two decisions for each scenario.
 - each decision is assigned a number of points
-- your total number of points determines your ability to navigate the work day, which is sorted into three bins: 
+- your total number of points determines your ability to navigate the work day, which is sorted into one of three bins (or performance reviews, if you will): 
     - 1: You are a star employee! You could ask for a raise, but don't hold your breath. 
     - 2: You get the job done... I guess. 
     - 3: Maybe you should revaluate your place in this corporate office.
