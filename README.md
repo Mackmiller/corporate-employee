@@ -35,11 +35,11 @@ Initial wireframes to show flow of game.
 
 ### Stretch Goals
 
-- two modes: 
+- random scenario is thrown in that results in game over.
+or
+- two modes, each with separate scenarios
    - 1: acting as the boss of the corporate employee.
    - 2: acting as the corporate employee. 
-- Scenarios for the two modes are completely different. 
-- random scenario is thrown in that results in game over.
 
 ### Potential roadblocks
 
