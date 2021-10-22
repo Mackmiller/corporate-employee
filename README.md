@@ -17,7 +17,7 @@ Navigate your way through a series of corporate cliches for each hour of the 9am
 
 ## Wireframes
 
-<img alt="wireframe image" src="wireframes-start.jpg" />
+<img alt="wireframe image" src="initial-wireframe.png" />
 
 ## MPV Goals
 
