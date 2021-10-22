@@ -8,7 +8,7 @@
 
 ## Do you have what it takes to get through the work day as a corporate employee?
 
-Navigate your way through a series of corporate cliches for each hour of the 9am-5pm work day. Don't worry, you'll have a nice analog clock helping you keep track of the time of day as your progress in the game.
+Navigate your way through a series of corporate cliches for each hour of the 9am-5pm work day. Don't worry, you'll have a nice analog clock helping you keep track of the time as the day progresses within the game.
 
 ### Tech stack
 
