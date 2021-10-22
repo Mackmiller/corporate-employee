@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="header image" src="office.jpg" />
+  <img alt="header image" src="office.png" />
 </p>
 
 # Corporate Employee
