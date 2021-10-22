@@ -10,18 +10,18 @@ A scenario-based RPG web application
 
 Navigate your way through a series of corporate cliches for each hour of the 9am-5pm work day. Don't worry, you'll have a nice analog clock helping you keep track of the time of day as your progress in the game.
 
-## Tech stack
+### Tech stack
 
 - HTML, Javascript
 - Materialize CSS
 
-## Wireframes
+### Wireframes
 
 Initial wireframes to show flow of game.
 
 <img alt="wireframe image" src="initial-wireframe.png" />
 
-## MPV Goals
+### MPV Goals
 
 - one mode: acting as the corporate employee.
 - scenario for each hour of the work day (9am = scenario 1, 10am = scenario 2, etc.). 
@@ -33,7 +33,7 @@ Initial wireframes to show flow of game.
     - 2: You get the job done... I guess. 
     - 3: Maybe you should revaluate your place in this corporate office.
 
-## Stretch Goals
+### Stretch Goals
 
 - two modes: 
    - 1: acting as the boss of the corporate employee.
@@ -41,6 +41,6 @@ Initial wireframes to show flow of game.
 - Scenarios for the two modes are completely different. 
 - random scenario is thrown in that results in game over.
 
-## Potential roadblocks
+### Potential roadblocks
 
 - There is a strong potential for errors or disorganization if strong pseudocode planning does NOT occur ahead of time.
