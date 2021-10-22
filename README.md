@@ -4,6 +4,6 @@
 
 # Corporate Employee
 
-A scenario-based web application
+A scenario-based RPG web application
 
 ## Pitch
