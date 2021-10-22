@@ -27,18 +27,18 @@ coming soon.
 - minimum of two decisions for each scenario.
 - each decision is assigned a number of points
 - your total number of points determines your ability to navigate the work day, which is sorted into three bins: 
-    1) You are a star employee! You could ask for a raise, but don't hold your breath. 
-    2) You get the job done... I guess. 
-    3) Maybe you should revaluate your place in this corporate office.
+    - 1: You are a star employee! You could ask for a raise, but don't hold your breath. 
+    - 2: You get the job done... I guess. 
+    - 3: Maybe you should revaluate your place in this corporate office.
 
 ## Stretch Goals
 
 - two modes: 
-   1) acting as the boss of the corporate employee.
-   2) acting as the corporate employee. 
+   - 1: acting as the boss of the corporate employee.
+   - 2: acting as the corporate employee. 
 - Scenarios for the two modes are completely different. 
 - random scenario is thrown in that results in game over.
 
 ## Potential roadblocks
 
-- There is a strong potential for errors or disorganization if strong pseudocode planning does NOT occur.
+- There is a strong potential for errors or disorganization if strong pseudocode planning does NOT occur ahead of time.
