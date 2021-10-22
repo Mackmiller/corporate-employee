@@ -4,7 +4,7 @@
 
 # Corporate Employee
 
-A scenario-based RPG web application
+*A scenario-based RPG web application*
 
 ## Do you have what it takes to get through the work day as a corporate employee?
 
