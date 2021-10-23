@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="header image" src="office.png" />
+  <img alt="header image" src="imgs/office.png" />
 </p>
 
 # Corporate Employee
@@ -19,7 +19,7 @@ Navigate your way through a series of corporate cliches for each hour of the 9am
 
 Initial wireframes to show flow of game.
 
-<img alt="wireframe image" src="figma2.png" />
+<img alt="wireframe image" src="imgs/figma2.png" />
 
 ### MPV Goals
 
