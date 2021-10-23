@@ -66,4 +66,11 @@ document.addEventListener ("DOMContentLoaded", () => {
         console.log(count)
         populateScenarioBox()
     })
+    
+    response2.addEventListener("click", () => {
+        count++
+        console.log(count)
+        populateScenarioBox()
+    })
+
 })
