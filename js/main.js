@@ -22,12 +22,14 @@ scenarioInfo[0] = new Array ("It's Sunday night. Do you have Sunday scaries abou
 scenarioInfo[1] = new Array("It's Monday morning. Do you indulge your boss when they ask how your weekend was?", "I give an in-depth overview and even ask about theirs.", "I quickly move on to work-related conversation.", 8)
 //reset count
 let count = 0
+//reset game points
+let points = 0
 //DOM variables
 let scenario = document.querySelector("#scenarioBox")
 let response1 = document.querySelector("#response1")
 let response2 = document.querySelector("#response2")
-//FUNCTIONS
 
+//FUNCTIONS
 const populateScenarioBox = () => {
 
     count++
@@ -41,11 +43,9 @@ const populateScenarioBox = () => {
         response1.innerHTML = scenarioInfo[1][1]
         response2.innerHTML = scenarioInfo[1][2]
     }
-    
-    //scenario.textContent = scenarioInfo[0][0]
 }
+
 //total score function
-//start game function
 //reset game function
 
 // form.addEventListener ("submit", populateScenarioBox)
@@ -53,6 +53,7 @@ const populateScenarioBox = () => {
 //ONCE PAGE LOADS
 document.addEventListener ("DOMContentLoaded", () => {
 
+    //START GAME
     //when start button is pressed, change text to scenario 0
     form.addEventListener ("submit", (e) => {
         e.preventDefault()
@@ -60,17 +61,19 @@ document.addEventListener ("DOMContentLoaded", () => {
         console.log(count)
         start.style.display = "none"
     })
-
+    //SCENARIOS 1-10
     response1.addEventListener("click", () => {
         count++
-        console.log(count)
+        points = points + 5
+        console.log("The count is" + count)
+        console.log("The point count is" + points)
         populateScenarioBox()
     })
-    
     response2.addEventListener("click", () => {
         count++
-        console.log(count)
+        points = points - 5
+        console.log("The count is" + count)
+        console.log("The point count is" + points)
         populateScenarioBox()
     })
-
 })
