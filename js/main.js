@@ -26,8 +26,14 @@ let count = 0
 
 const populateScenarioBox = () => {
     let scenario = document.querySelector("#scenarioBox")
+    let response1 = document.querySelector("#response1")
+    let response2 = document.querySelector("#response2")
+    
+    //populate divs with scenario info
     if (count == 1) {
         scenario.innerHTML = scenarioInfo[0][0]
+        response1.innerHTML = scenarioInfo[0][1]
+        response2.innerHTML = scenarioInfo[0][2]
     }
     //scenario.textContent = scenarioInfo[0][0]
 }
