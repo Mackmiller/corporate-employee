@@ -5,3 +5,7 @@
 #response1 {
     /* background: red; */
 }
+
+#restart {
+    display: none;
+}
