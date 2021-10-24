@@ -1,12 +1,18 @@
 body {
-    background-image: url("../imgs/office_background.png");
-    background-size: 70%;
-    background-repeat: no-repeat;
-    background-position: top;
+
 }
 
 p {
     font-size: 16px;
+}
+
+.background {
+    background-image: url("../imgs/office_background.png");
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: top;
+    width: 1400px;
+    height: 800px;
 }
 
 .container {
@@ -14,7 +20,6 @@ p {
     padding: 50px 70px 0 0;
     max-width: 400px;
     text-align: center;
-    
 }
 
 .img2 {
@@ -48,5 +53,9 @@ p {
 
 #restart {
     margin-top: 15px;
+    display: none;
+}
+
+#restart-form {
     display: none;
 }

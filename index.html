@@ -9,22 +9,39 @@
     <title>Document</title>
 </head>
 <body>
-    <img class="img1" id="face" src="imgs/clock.png"/>
-    <img class="img2" id="hour" src="imgs/clockhour.png"/>
-    <div class="container">
-        <div id="scenarioBox">
-            <h6><blockquote><strong>Navigate your way through a series of corporate cliches for each hour of the nine-to-five work day.</strong></blockquote></h6><p>Don't worry, you'll have your office's classic analog clock helping you keep track of the time of day.</p>
-        </div>
-        <div id="response1"></div>
-        <div id="response2"></div>
-    <form id="form">
-        <input class="waves-effect waves-teal btn-large" type="submit" value="Start" id="start">
-    </form>
-    <form id="restart-form">
-        <input class="waves-effect waves-teal btn-large" type="submit" value="Restart" id="restart">
-    </form>
+    <div class="clock">
+        <img class="img1" id="face" src="imgs/clock.png"/>
+        <img class="img2" id="hour" src="imgs/clockhour.png"/>
     </div>
-
-<script src="js/main.js"></script>
+    <div class="background">
+        <div class="container">
+            <div id="scenarioBox">
+                <h6><blockquote><strong>Navigate your way through a series of corporate cliches for each hour of the nine-to-five work day.</strong></blockquote></h6><p>Don't worry, you'll have your office's classic analog clock helping you keep track of the time of day.</p>
+            </div>
+            <!-- MODAL TEST -->
+            <div class="modal-trigger" href="#demo-modal" id="response1"></div>
+            <div id="response2"></div>
+        <form id="form">
+            <input class="waves-teal btn-large" type="submit" value="Start" id="start">
+        </form>
+        <form id="restart-form">
+            <input class="waves-teal btn-large" type="submit" value="Restart" id="restart">
+        </form>
+        </div>
+    </div> 
+    <!-- MODAL TEST -->
+    <div id="demo-modal" class="modal">
+        <div class="modal-content">
+          <h4>A VIP Client called and they are mad.</h4>
+          <p>Despite your best intentions with picking up your boss' phone, you ended up being on the receiving end of great dissatisfaction from one of the company's most high-profile clients. Next time, let the phone go to voicemail.</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1">Close</a>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

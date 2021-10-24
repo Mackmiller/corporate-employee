@@ -38,6 +38,7 @@ let scenario = document.querySelector("#scenarioBox")
 let response1 = document.querySelector("#response1")
 let response2 = document.querySelector("#response2")
 let restart = document.querySelector("#restart")
+let restartDiv = document.querySelector("#restart-form")
 
 //FUNCTIONS
 //clock
@@ -118,13 +119,17 @@ const populateScenarioBox = () => {
         response2.style.backgroundColor = "#b2dfdb"
         console.log("game complete")
         //restart button
+        restartDiv.style.display = "inline-block"
         restart.style.display = "inline-block"
     }
 }
 
 //ONCE PAGE LOADS
 document.addEventListener ("DOMContentLoaded", () => {
-
+    //declare variables for modal 1
+    const elem = document.querySelector(".modal")
+    const instance = M.Modal.init(elem, {dismissible: false})
+   
     //START GAME
     //when start button is pressed, change text to scenario 0
     form.addEventListener ("submit", (e) => {
@@ -136,6 +141,12 @@ document.addEventListener ("DOMContentLoaded", () => {
     })
     //SCENARIOS 1-10
     response1.addEventListener("click", () => {
+        if (count == 4) {
+            //open modal 1
+            instance.open()
+        } else if (count >= 5) {
+            instance.destroy()
+        }
         count++
         points = points + 5
         console.log("The count is" + count)
@@ -152,6 +163,7 @@ document.addEventListener ("DOMContentLoaded", () => {
 
     // restart/reset game
     restart.addEventListener ("submit", (e) => {
+        console.log("clicked")
         e.default()
     })
 })
