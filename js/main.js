@@ -68,7 +68,7 @@ const populateScenarioBox = () => {
         response2.innerHTML = scenarioInfo[2][2]
         hourRotation(scenarioInfo[2][3])
     } else if (count == 4) {
-        scenario.innerHTML = scenarioInfo[3][0]
+         scenario.innerHTML = scenarioInfo[3][0]
         response1.innerHTML = scenarioInfo[3][1]
         response2.innerHTML = scenarioInfo[3][2]
         hourRotation(scenarioInfo[3][3])
@@ -126,9 +126,8 @@ const populateScenarioBox = () => {
 
 //ONCE PAGE LOADS
 document.addEventListener ("DOMContentLoaded", () => {
-    //declare variables for modal 1
-    const elem = document.querySelector(".modal")
-    const instance = M.Modal.init(elem, {dismissible: false})
+
+    
    
     //START GAME
     //when start button is pressed, change text to scenario 0
@@ -141,16 +140,19 @@ document.addEventListener ("DOMContentLoaded", () => {
     })
     //SCENARIOS 1-10
     response1.addEventListener("click", () => {
-        if (count == 4) {
-            //open modal 1
-            instance.open()
-        } else if (count >= 5) {
-            instance.destroy()
-        }
         count++
         points = points + 5
         console.log("The count is" + count)
         console.log("The point count is" + points)
+        if (count === 5) {
+            const elem = document.querySelector(".modal")
+            const instance = M.Modal.init(elem, {dismissible: false})
+            instance.open()
+        } else {
+            const elem = document.querySelector(".modal")
+            const instance = M.Modal.init(elem, {dismissible: false})
+            instance.destroy()
+        }
         populateScenarioBox()
     })
     response2.addEventListener("click", () => {
