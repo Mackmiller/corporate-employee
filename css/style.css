@@ -1,11 +1,52 @@
-#start {
+body {
+    background-image: url("../imgs/office_background.png");
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+
+p {
+    font-size: 16px;
+}
+
+.container {
+    margin: auto;
+    padding: 50px 70px 0 0;
+    max-width: 400px;
+    text-align: center;
     
 }
 
-#response1 {
-    /* background: red; */
+.img2 {
+    position: absolute;
+    z-index: 4;
+    width: 275px;
+    height: 200px;
+}
+
+.img1 {
+    position: absolute;
+    z-index: 1;
+    width: 275px;
+    height: 200px;
+}
+
+#start {
+    margin-top: 5px;
+}
+
+#response1, #response2 {
+    padding: 5px 0;
+    display: none;
+}
+
+#response1:hover, #response2:hover {
+    /* font-weight: 900; */
+    cursor: pointer;
+    background-color: #b2dfdb;
 }
 
 #restart {
+    margin-top: 15px;
     display: none;
 }

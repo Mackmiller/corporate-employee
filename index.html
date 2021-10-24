@@ -4,23 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
 <body>
+    <img class="img1" id="face" src="imgs/clock.png"/>
+    <img class="img2" id="hour" src="imgs/clockhour.png"/>
     <div class="container">
         <div id="scenarioBox">
-            <p>Navigate your way through a series of corporate cliches for each hour of the 9am-5pm work day. Don't worry, you'll have a nice analog clock helping you keep track of the time as the day progresses within the game.</p>
+            <h6><blockquote><strong>Navigate your way through a series of corporate cliches for each hour of the nine-to-five work day.</strong></blockquote></h6><p>Don't worry, you'll have your trusty desktop monitor's digital clock helping you keep track of the time of day.</p>
         </div>
         <div id="response1"></div>
         <div id="response2"></div>
-    </div>
     <form id="form">
-        <input type="submit" value="Start" id="start">
+        <input class="waves-effect waves-teal btn-large" type="submit" value="Start" id="start">
     </form>
     <form id="restart-form">
-        <input type="submit" value="Restart" id="restart">
+        <input class="waves-effect waves-teal btn-large" type="submit" value="Restart" id="restart">
     </form>
+    </div>
 
 <script src="js/main.js"></script>
 </body>
