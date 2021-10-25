@@ -21,10 +21,10 @@ var scenarioInfo = new Array ();
 scenarioInfo[0] = new Array ("<h6><blockquote><strong>It's Sunday night. Sometimes people get anxiety about going to work on Monday, and this is known as the Sunday Scaries. Do you have Sunday Scaries about work tomorrow?</strong></blockquote></h6>", "No, I'm feeling good.", "Yes, I'm already anxious.")
 scenarioInfo[1] = new Array("<h6><blockquote><strong>It's Monday morning. Do you indulge your boss when they ask you how your weekend was?</strong></blockquote></h6>", "I gave an in-depth overview of my weekend and even ask about theirs.", "Not interested in small talk. I quickly move on to work-related conversation.", 9)
 scenarioInfo[2] = new Array("<h6><blockquote><strong>No one seems to be working except for you. Do you keep working anyway?</strong></blockquote></h6>", "Of course I do- I'm getting paid to work!", "No way. If others aren't working, why should I?", 10)
-scenarioInfo[3] = new Array("<h6><blockquote><strong>The desk phone starts ringing, but it's your boss' line and they aren't currently in the office. Do you answer the call?</strong></blockquote></h6>", "Of course, it could be an important call for the office.", "Not my problem, I'm going to let it ring.", 11)
+scenarioInfo[3] = new Array("<h6><blockquote><strong>The desk phone starts ringing, but it's your boss' line and they aren't currently in the office. Do you answer the call?</strong></blockquote></h6>", "Of course, it could be an important call.", "Not my problem, I'm going to let it ring.", 11)
 scenarioInfo[4] = new Array("<h6><blockquote><strong>It's time for the weekly department meeting. Someone else just took credit for <em>your</em> idea. Should you say something?</strong></blockquote></h6>", "I'm not going to say anything- my time to shine will come later.", "That's not cool. I'm going to bring it up to the employee... or maybe our boss.", 12)
-scenarioInfo[5] = new Array("<h6><blockquote><strong>Phew, it's finally time for lunch. You were hoping to laeve the office to eat on your own, but a coworker asks to eat with you in the cafeteria instead. Do you accept?</strong></blockquote></h6>", "Alright, I'll stay- it would be good to make friends with colleagues.", "Lunch is a time for me to get <em>away</em> from work. Raincheck maybe?", 1)
-scenarioInfo[6] = new Array("<h6><blockquote><strong>Time to check for emails after lunch. You have a new message that requests information already sent to them in a previous email. How do you reply?</strong></blockquote></h6>", "'Hi there, attached is the information you are requesting.'", "'Hi there, please see my original email for the information you are requesting.'", 2)
+scenarioInfo[5] = new Array("<h6><blockquote><strong>Phew, it's finally time for lunch. You were hoping to leave the office to eat on your own, but a coworker asks to eat with you in the cafeteria instead. Do you accept?</strong></blockquote></h6>", "Alright, I'll stay- it would be good to make friends with colleagues.", "Lunch is a time for me to get <em>away</em> from work. Raincheck maybe?", 1)
+scenarioInfo[6] = new Array("<h6><blockquote><strong>Time to check for emails after lunch. You have a new message that requests information already sent to them in a previous email. How do you reply?</strong></blockquote></h6>", "'Attached is the information you are requesting.'", "'Please see my previous email for the information you are requesting.'", 2)
 scenarioInfo[7] = new Array("<h6><blockquote><strong>You only have a few hours left in the work day and someone comes to you with a task to turn in EOD (end of day). Do you complete the project before you leave work today?</strong></blockquote></h6>", "Of course I do- part of my job is meeting tight deadlines.", "No way. This task is too big for this afternoon and I had already alotted my time to other tasks.", 3)
 scenarioInfo[8] = new Array("<h6><blockquote><strong>There's technically one hour left of work. Your boss is MIA and has probably left for the day. Do you stay until 5 or leave early?</strong></blockquote></h6>", "I'm being paid to stay until 5, so that's when I'll leave.", "Leaving early, of course! Not interested in a rush hour commute home.", 4)
 scenarioInfo[9] = new Array("<h6><blockquote><strong>It's after hours, but your boss just called your personal phone. Do you answer?</strong></blockquote></h6>", "Yes, it could be something urgent", "No, it can wait until work tomorrow.", 5)
@@ -107,10 +107,10 @@ const populateScenarioBox = () => {
         scenario.innerHTML = "<h5>PERFORMANCE EVALUATION:</h5>"
         response1.innerHTML = "<strong>" + points + " points </strong>"
         if (points <= 20) {
-            response2.innerHTML = "Abysmal job today from a work standpoint, but you put yourself first- that takes guts! Might I suggest a job change though..."
+            response2.innerHTML = "You performed poorly today from a work standpoint, but you put yourself first- that takes guts! Might I suggest a job change though..."
             response1.style.color = "red"
         } else if (points > 20 && points <= 40) {
-            response2.innerHTML = "Seems like you perform like an average employee- working hard or hardly working."
+            response2.innerHTML = "You performed as an average employee today: working hard or hardly working."
             response1.style.color = "yellow"
         } else if (points > 40) {
             response2.innerHTML = "Stellar work today. You could ask for a raise, but I'm doubtful it would happen any time soon."
@@ -197,6 +197,18 @@ document.addEventListener ("DOMContentLoaded", () => {
             const elem3 = document.querySelector("#modal3")
             const instance3 = M.Modal.init(elem3, {dismissible: false})
             instance3.destroy()
+        }
+        //after hours scenario modal
+        if (count === 11) {
+            response1.href = "#modal4"
+            const elem4 = document.querySelector("#modal4")
+            const instance4 = M.Modal.init(elem4, {dismissible: false})
+            instance4.open()
+        } else {
+            response1.href = "#modal3"
+            const elem4 = document.querySelector("#modal4")
+            const instance4 = M.Modal.init(elem4, {dismissible: false})
+            instance4.destroy()
         }
         populateScenarioBox()
     })
