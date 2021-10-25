@@ -60,6 +60,7 @@ const populateScenarioBox = () => {
         response1.innerHTML = scenarioInfo[0][1]
         response2.innerHTML = scenarioInfo[0][2]
     } else if (count == 2) {
+        myPlay()
         scenario.innerHTML = scenarioInfo[1][0]
         response1.innerHTML = scenarioInfo[1][1]
         response2.innerHTML = scenarioInfo[1][2]
@@ -155,9 +156,9 @@ const resetGame = () => {
 // const randomNumber = (() => (Math.floor(Math.random() * 20)))
 //random wifi outage
 const randomNumber = () => {
-    number = Math.floor(Math.random() * 20)
+    number = Math.floor(Math.random() * 100)
     //random integer generator 
-    if (number > 16) {
+    if (number > 98) {
         response1.href = "#modal5"
         const elem5 = document.querySelector("#modal5")
         const instance5 = M.Modal.init(elem5, {dismissible: false})
@@ -172,12 +173,20 @@ const randomNumber = () => {
     }
 }
 
+function myPlay(){
+    var audio = new Audio("officesounds.wav")
+    audio.volume = .2
+    audio.play()
+}
+
+
+
 //ONCE PAGE LOADS
 document.addEventListener ("DOMContentLoaded", () => {
     //START GAME
     //when start button is pressed, change text to scenario 0
     form.addEventListener ("submit", (e) => {
-        //e.preventDefault()
+        e.preventDefault()
         count++
         populateScenarioBox()
         console.log(count)
