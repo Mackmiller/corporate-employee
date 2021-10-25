@@ -159,14 +159,27 @@ document.addEventListener ("DOMContentLoaded", () => {
         points = points + 5
         console.log("The count is" + count)
         console.log("The point count is" + points)
+        //phone scenario modal is default starting modal because it is first
         if (count === 5) {
-            const elem = document.querySelector("#modal1")
-            const instance = M.Modal.init(elem, {dismissible: false})
+            const elem1 = document.querySelector("#modal1")
+            const instance = M.Modal.init(elem1, {dismissible: false})
             instance.open()
         } else {
-            const elem = document.querySelector("#modal1")
-            const instance = M.Modal.init(elem, {dismissible: false})
+            const elem1 = document.querySelector("#modal1")
+            const instance = M.Modal.init(elem1, {dismissible: false})
             instance.destroy()
+        }
+        //lunch scenario modal
+        if (count === 7) {
+            response1.href = "#modal2"
+            const elem2 = document.querySelector("#modal2")
+            const instance2 = M.Modal.init(elem2, {dismissible: false})
+            instance2.open()
+        } else {
+            response1.href = "#modal1"
+            const elem2 = document.querySelector("#modal2")
+            const instance2 = M.Modal.init(elem2, {dismissible: false})
+            instance2.destroy()
         }
         populateScenarioBox()
     })
