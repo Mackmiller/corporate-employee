@@ -1,4 +1,12 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap'); 
+
+h3 {
+    margin-bottom: 10px;
+    text-align: center;
+    padding-right: 110px;
+    font-family: 'Fredoka One', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
 
 }
 

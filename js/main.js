@@ -25,7 +25,7 @@ scenarioInfo[3] = new Array("<h6><blockquote><strong>The desk phone starts ringi
 scenarioInfo[4] = new Array("<h6><blockquote><strong>It's time for the weekly department meeting. Someone else just took credit for <em>your</em> idea. Should you say something?</strong></blockquote></h6>", "I'm not going to say anything- my time to shine will come later.", "That's not cool. I'm going to bring it up to the employee... or maybe our boss.", 12)
 scenarioInfo[5] = new Array("<h6><blockquote><strong>Phew, it's finally time for lunch. You were hoping to leave the office to eat on your own, but a coworker asks to eat with you in the cafeteria instead. Do you accept?</strong></blockquote></h6>", "Alright, I'll stay- it would be good to make friends with colleagues.", "Lunch is a time for me to get <em>away</em> from work. Raincheck maybe?", 1)
 scenarioInfo[6] = new Array("<h6><blockquote><strong>Time to check for emails after lunch. You have a new message that requests information already sent to them in a previous email. How do you reply?</strong></blockquote></h6>", "'Attached is the information you are requesting.'", "'Please see my previous email for the information you are requesting.'", 2)
-scenarioInfo[7] = new Array("<h6><blockquote><strong>You only have a few hours left in the work day and someone comes to you with a task to turn in EOD (end of day). Do you complete the project today?</strong></blockquote></h6>", "Yes, finishing it today because tight deadlines are to be expected.", "No way. Completing this task this afternoon is above my paygrade.", 3)
+scenarioInfo[7] = new Array("<h6><blockquote><strong>You only have a few hours left in the work day and someone assigns a task to turn in by EOD (end of day). Do you complete the project today?</strong></blockquote></h6>", "Yes, finishing it today because tight deadlines are to be expected.", "No way. Completing this task this afternoon is above my paygrade.", 3)
 scenarioInfo[8] = new Array("<h6><blockquote><strong>There's technically one hour left of work. Your boss is MIA and has probably left for the day. Do you stay until 5 or leave early?</strong></blockquote></h6>", "I'm being paid to stay until 5, so that's when I'll leave.", "Leaving early, of course! Not interested in a rush hour commute home.", 4)
 scenarioInfo[9] = new Array("<h6><blockquote><strong>It's after hours, but your boss just called your personal phone. Do you answer?</strong></blockquote></h6>", "Yes, it could be something urgent", "No, it can wait until work tomorrow.", 5)
 scenarioInfo[10] = new Array("<h6><blockquote><strong>Navigate your way through a series of corporate cliches for each hour of the nine-to-five work day.</strong></blockquote></h6><p>Don't worry, you'll have your office's classic analog clock helping you keep track of the time of day.</p>")
@@ -163,7 +163,7 @@ const resetGame = () => {
 const randomNumber = () => {
     number = Math.floor(Math.random() * 100)
     //random integer generator 
-    if (number > 80) {
+    if (number > 89) {
         response1.href = "#modal5"
         const elem5 = document.querySelector("#modal5")
         const instance5 = M.Modal.init(elem5, {dismissible: false})
