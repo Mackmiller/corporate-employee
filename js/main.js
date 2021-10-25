@@ -64,6 +64,7 @@ const populateScenarioBox = () => {
         response2.innerHTML = scenarioInfo[0][2]
     } else if (count == 2) {
         audio.play()
+        audio.loop = true;
         audio.volume = .2
         scenario.innerHTML = scenarioInfo[1][0]
         response1.innerHTML = scenarioInfo[1][1]
@@ -162,7 +163,7 @@ const resetGame = () => {
 const randomNumber = () => {
     number = Math.floor(Math.random() * 100)
     //random integer generator 
-    if (number > 98) {
+    if (number > 90) {
         response1.href = "#modal5"
         const elem5 = document.querySelector("#modal5")
         const instance5 = M.Modal.init(elem5, {dismissible: false})
@@ -217,6 +218,18 @@ document.addEventListener ("DOMContentLoaded", () => {
             const instance2 = M.Modal.init(elem2, {dismissible: false})
             instance2.destroy()
         }
+        //after hours scenario modal
+        if (count === 11) {
+            response1.href = "#modal6"
+            const elem6 = document.querySelector("#modal6")
+            const instance6 = M.Modal.init(elem6, {dismissible: false})
+            instance6.open()
+        } else {
+            response1.href = "#modal1"
+            const elem6 = document.querySelector("#modal6")
+            const instance6 = M.Modal.init(elem6, {dismissible: false})
+            instance6.destroy()
+        }
         populateScenarioBox()
     })
     //response 2 clicked
@@ -237,7 +250,7 @@ document.addEventListener ("DOMContentLoaded", () => {
         }
         //after hours scenario modal
         if (count === 11) {
-            response1.href = "#modal4"
+            response2.href = "#modal4"
             const elem4 = document.querySelector("#modal4")
             const instance4 = M.Modal.init(elem4, {dismissible: false})
             instance4.open()
