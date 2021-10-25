@@ -35,6 +35,9 @@ let number = 0
 let count = 0
 //reset game points
 let points = 0
+//music audio
+let audio = new Audio("officesounds.wav")
+
 //DOM variables
 let scenario = document.querySelector("#scenarioBox")
 let response1 = document.querySelector("#response1")
@@ -60,7 +63,8 @@ const populateScenarioBox = () => {
         response1.innerHTML = scenarioInfo[0][1]
         response2.innerHTML = scenarioInfo[0][2]
     } else if (count == 2) {
-        myPlay()
+        audio.play()
+        audio.volume = .2
         scenario.innerHTML = scenarioInfo[1][0]
         response1.innerHTML = scenarioInfo[1][1]
         response2.innerHTML = scenarioInfo[1][2]
@@ -151,9 +155,9 @@ const resetGame = () => {
     response1.style.color = "black"
     response1.style.display = "none"
     response2.style.display = "none"
+    audio.pause()
 }
-//declare random number generator via implied return anonymous function
-// const randomNumber = (() => (Math.floor(Math.random() * 20)))
+
 //random wifi outage
 const randomNumber = () => {
     number = Math.floor(Math.random() * 100)
@@ -164,7 +168,6 @@ const randomNumber = () => {
         const instance5 = M.Modal.init(elem5, {dismissible: false})
         instance5.open()
         resetGame()
-
     } else {
         response1.href = "#modal1"
         const elem5 = document.querySelector("#modal5")
@@ -172,14 +175,6 @@ const randomNumber = () => {
         instance5.destroy()
     }
 }
-
-function myPlay(){
-    var audio = new Audio("officesounds.wav")
-    audio.volume = .2
-    audio.play()
-}
-
-
 
 //ONCE PAGE LOADS
 document.addEventListener ("DOMContentLoaded", () => {
