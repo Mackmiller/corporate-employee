@@ -29,7 +29,8 @@ scenarioInfo[7] = new Array("<h6><blockquote><strong>You only have a few hours l
 scenarioInfo[8] = new Array("<h6><blockquote><strong>There's technically one hour left of work. Your boss is MIA and has probably left for the day. Do you stay until 5 or leave early?</strong></blockquote></h6>", "I'm being paid to stay until 5, so that's when I'll leave.", "Leaving early, of course! Not interested in a rush hour commute home.", 4)
 scenarioInfo[9] = new Array("<h6><blockquote><strong>It's after hours, but your boss just called your personal phone. Do you answer?</strong></blockquote></h6>", "Yes, it could be something urgent", "No, it can wait until work tomorrow.", 5)
 scenarioInfo[10] = new Array("<h6><blockquote><strong>Navigate your way through a series of corporate cliches for each hour of the nine-to-five work day.</strong></blockquote></h6><p>Don't worry, you'll have your office's classic analog clock helping you keep track of the time of day.</p>")
-
+//random number
+let number = 0
 //reset count
 let count = 0
 //reset game points
@@ -68,11 +69,15 @@ const populateScenarioBox = () => {
         response1.innerHTML = scenarioInfo[2][1]
         response2.innerHTML = scenarioInfo[2][2]
         hourRotation(scenarioInfo[2][3])
+        randomNumber()
+        console.log(number)
     } else if (count == 4) {
          scenario.innerHTML = scenarioInfo[3][0]
         response1.innerHTML = scenarioInfo[3][1]
         response2.innerHTML = scenarioInfo[3][2]
         hourRotation(scenarioInfo[3][3])
+        randomNumber()
+        console.log(number)
     } else if (count == 5) {
         scenario.innerHTML = scenarioInfo[4][0]
         response1.innerHTML = scenarioInfo[4][1]
@@ -83,6 +88,8 @@ const populateScenarioBox = () => {
         response1.innerHTML = scenarioInfo[5][1]
         response2.innerHTML = scenarioInfo[5][2]
         hourRotation(scenarioInfo[5][3])
+        randomNumber()
+        console.log(number)
     } else if (count == 7) {
         scenario.innerHTML = scenarioInfo[6][0]
         response1.innerHTML = scenarioInfo[6][1]
@@ -93,11 +100,15 @@ const populateScenarioBox = () => {
         response1.innerHTML = scenarioInfo[7][1]
         response2.innerHTML = scenarioInfo[7][2]
         hourRotation(scenarioInfo[7][3])
+        randomNumber()
+        console.log(number)
     } else if (count == 9) {
         scenario.innerHTML = scenarioInfo[8][0]
         response1.innerHTML = scenarioInfo[8][1]
         response2.innerHTML = scenarioInfo[8][2]
         hourRotation(scenarioInfo[8][3])
+        randomNumber()
+        console.log(number)
     } else if (count == 10) {
         scenario.innerHTML = scenarioInfo[9][0]
         response1.innerHTML = scenarioInfo[9][1]
@@ -124,7 +135,7 @@ const populateScenarioBox = () => {
         restart.style.display = "inline-block"
     }
 }
-
+//reset
 const resetGame = () => {
     count = 0
     points = 0
@@ -140,6 +151,26 @@ const resetGame = () => {
     response1.style.display = "none"
     response2.style.display = "none"
 }
+//declare random number generator via implied return anonymous function
+// const randomNumber = (() => (Math.floor(Math.random() * 20)))
+//random wifi outage
+const randomNumber = () => {
+    number = Math.floor(Math.random() * 20)
+    //random integer generator 
+    if (number > 16) {
+        response1.href = "#modal5"
+        const elem5 = document.querySelector("#modal5")
+        const instance5 = M.Modal.init(elem5, {dismissible: false})
+        instance5.open()
+        resetGame()
+
+    } else {
+        response1.href = "#modal1"
+        const elem5 = document.querySelector("#modal5")
+        const instance5 = M.Modal.init(elem5, {dismissible: false})
+        instance5.destroy()
+    }
+}
 
 //ONCE PAGE LOADS
 document.addEventListener ("DOMContentLoaded", () => {
@@ -154,12 +185,13 @@ document.addEventListener ("DOMContentLoaded", () => {
     })
 
     //SCENARIOS 1-10
+    //response1 clicked
     response1.addEventListener("click", () => {
         count++
         points = points + 5
         console.log("The count is" + count)
         console.log("The point count is" + points)
-        //phone scenario modal is default starting modal because it is first
+        //phone scenario modal is default starting modal because it is first in response1
         if (count === 5) {
             const elem1 = document.querySelector("#modal1")
             const instance = M.Modal.init(elem1, {dismissible: false})
@@ -183,12 +215,13 @@ document.addEventListener ("DOMContentLoaded", () => {
         }
         populateScenarioBox()
     })
+    //response 2 clicked
     response2.addEventListener("click", () => {
         count++
         points = points - 5
         console.log("The count is" + count)
         console.log("The point count is" + points)
-        //leave early scenario modal
+        //leave early scenario modal is default starting modal because it is first in response2
         if (count === 10) {
             const elem3 = document.querySelector("#modal3")
             const instance3 = M.Modal.init(elem3, {dismissible: false})
