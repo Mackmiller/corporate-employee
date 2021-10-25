@@ -28,6 +28,7 @@ scenarioInfo[6] = new Array("<h6><blockquote><strong>Time to check for emails af
 scenarioInfo[7] = new Array("<h6><blockquote><strong>You only have a few hours left in the work day and someone comes to you with a task to turn in EOD (end of day). Do you complete the project before you leave work today?</strong></blockquote></h6>", "Of course I do- part of my job is meeting tight deadlines.", "No way. This task is too big for this afternoon and I had already alotted my time to other tasks.", 3)
 scenarioInfo[8] = new Array("<h6><blockquote><strong>There's technically one hour left of work. Your boss is MIA and has probably left for the day. Do you stay until 5 or leave early?</strong></blockquote></h6>", "I'm being paid to stay until 5, so that's when I'll leave.", "Leaving early, of course! Not interested in a rush hour commute home.", 4)
 scenarioInfo[9] = new Array("<h6><blockquote><strong>It's after hours, but your boss just called your personal phone. Do you answer?</strong></blockquote></h6>", "Yes, it could be something urgent", "No, it can wait until work tomorrow.", 5)
+scenarioInfo[10] = new Array("<h6><blockquote><strong>Navigate your way through a series of corporate cliches for each hour of the nine-to-five work day.</strong></blockquote></h6><p>Don't worry, you'll have your office's classic analog clock helping you keep track of the time of day.</p>")
 
 //reset count
 let count = 0
@@ -38,7 +39,7 @@ let scenario = document.querySelector("#scenarioBox")
 let response1 = document.querySelector("#response1")
 let response2 = document.querySelector("#response2")
 let restart = document.querySelector("#restart")
-let restartDiv = document.querySelector("#restart-form")
+let restartDiv = document.querySelector("#restartform")
 
 //FUNCTIONS
 //clock
@@ -124,20 +125,34 @@ const populateScenarioBox = () => {
     }
 }
 
+const resetGame = () => {
+    count = 0
+    points = 0
+    scenario.innerHTML = scenarioInfo[10][0]
+    response1.innerHTML = ""
+    response2.innerHTML = ""
+    start.style.display = "inline-block"
+    restartDiv.style.display = "none"
+    restart.style.display = "none"
+    response1.style.backgroundColor = ""
+    response2.style.backgroundColor = ""
+    response1.style.color = "black"
+    response1.style.display = "none"
+    response2.style.display = "none"
+}
+
 //ONCE PAGE LOADS
 document.addEventListener ("DOMContentLoaded", () => {
-
-    
-   
     //START GAME
     //when start button is pressed, change text to scenario 0
     form.addEventListener ("submit", (e) => {
-        e.preventDefault()
+        //e.preventDefault()
         count++
         populateScenarioBox()
         console.log(count)
         start.style.display = "none"
     })
+
     //SCENARIOS 1-10
     response1.addEventListener("click", () => {
         count++
@@ -163,9 +178,9 @@ document.addEventListener ("DOMContentLoaded", () => {
         populateScenarioBox()
     })
 
-    // restart/reset game
-    restart.addEventListener ("submit", (e) => {
+    //RESET GAME
+    restartform.addEventListener ("submit", (e) => {
+        resetGame()
         console.log("clicked")
-        e.default()
     })
 })
