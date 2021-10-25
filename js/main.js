@@ -188,6 +188,16 @@ document.addEventListener ("DOMContentLoaded", () => {
         points = points - 5
         console.log("The count is" + count)
         console.log("The point count is" + points)
+        //leave early scenario modal
+        if (count === 10) {
+            const elem3 = document.querySelector("#modal3")
+            const instance3 = M.Modal.init(elem3, {dismissible: false})
+            instance3.open()
+        } else {
+            const elem3 = document.querySelector("#modal3")
+            const instance3 = M.Modal.init(elem3, {dismissible: false})
+            instance3.destroy()
+        }
         populateScenarioBox()
     })
 
