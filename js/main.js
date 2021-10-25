@@ -23,7 +23,7 @@ scenarioInfo[1] = new Array("<h6><blockquote><strong>It's Monday morning. Do you
 scenarioInfo[2] = new Array("<h6><blockquote><strong>No one seems to be working except for you. Do you keep working anyway?</strong></blockquote></h6>", "Of course I do- I'm getting paid to work!", "No way. If others aren't working, why should I?", 10)
 scenarioInfo[3] = new Array("<h6><blockquote><strong>The desk phone starts ringing, but it's your boss' line and they aren't currently in the office. Do you answer the call?</strong></blockquote></h6>", "Of course, it could be an important call for the office.", "Not my problem, I'm going to let it ring.", 11)
 scenarioInfo[4] = new Array("<h6><blockquote><strong>It's time for the weekly department meeting. Someone else just took credit for <em>your</em> idea. Should you say something?</strong></blockquote></h6>", "I'm not going to say anything- my time to shine will come later.", "That's not cool. I'm going to bring it up to the employee... or maybe our boss.", 12)
-scenarioInfo[5] = new Array("<h6><blockquote><strong>Phew, it's finally time for lunch. You were hoping to laeve the office to eat on your own, but a coworker asks to eat with you in the cafeteria instead. Do you accept?</strong></blockquote></h6>", "ALright, I'll stay- it would be good to make friends with colleagues.", "Lunch is a time for me to get <em>away</em> from work. Raincheck maybe?", 1)
+scenarioInfo[5] = new Array("<h6><blockquote><strong>Phew, it's finally time for lunch. You were hoping to laeve the office to eat on your own, but a coworker asks to eat with you in the cafeteria instead. Do you accept?</strong></blockquote></h6>", "Alright, I'll stay- it would be good to make friends with colleagues.", "Lunch is a time for me to get <em>away</em> from work. Raincheck maybe?", 1)
 scenarioInfo[6] = new Array("<h6><blockquote><strong>Time to check for emails after lunch. You have a new message that requests information already sent to them in a previous email. How do you reply?</strong></blockquote></h6>", "'Hi there, attached is the information you are requesting.'", "'Hi there, please see my original email for the information you are requesting.'", 2)
 scenarioInfo[7] = new Array("<h6><blockquote><strong>You only have a few hours left in the work day and someone comes to you with a task to turn in EOD (end of day). Do you complete the project before you leave work today?</strong></blockquote></h6>", "Of course I do- part of my job is meeting tight deadlines.", "No way. This task is too big for this afternoon and I had already alotted my time to other tasks.", 3)
 scenarioInfo[8] = new Array("<h6><blockquote><strong>There's technically one hour left of work. Your boss is MIA and has probably left for the day. Do you stay until 5 or leave early?</strong></blockquote></h6>", "I'm being paid to stay until 5, so that's when I'll leave.", "Leaving early, of course! Not interested in a rush hour commute home.", 4)
@@ -160,11 +160,11 @@ document.addEventListener ("DOMContentLoaded", () => {
         console.log("The count is" + count)
         console.log("The point count is" + points)
         if (count === 5) {
-            const elem = document.querySelector(".modal")
+            const elem = document.querySelector("#modal1")
             const instance = M.Modal.init(elem, {dismissible: false})
             instance.open()
         } else {
-            const elem = document.querySelector(".modal")
+            const elem = document.querySelector("#modal1")
             const instance = M.Modal.init(elem, {dismissible: false})
             instance.destroy()
         }
