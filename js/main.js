@@ -163,7 +163,7 @@ const resetGame = () => {
 const randomNumber = () => {
     number = Math.floor(Math.random() * 100)
     //random integer generator 
-    if (number > 90) {
+    if (number > 80) {
         response1.href = "#modal5"
         const elem5 = document.querySelector("#modal5")
         const instance5 = M.Modal.init(elem5, {dismissible: false})
