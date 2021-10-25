@@ -3,10 +3,12 @@
 h3 {
     margin-bottom: 10px;
     text-align: center;
-    padding-right: 110px;
+    padding-right: 160px;
     font-family: 'Fredoka One', sans-serif;
     font-weight: 900;
     text-transform: uppercase;
+    width: 1400px;
+
 
 }
 
@@ -16,7 +18,7 @@ p {
 }
 
 .background {
-    background-image: url("../imgs/office_background.png");
+    background-image: url("../imgs/office_background_v2.png");
     background-size: 70%;
     background-repeat: no-repeat;
     background-position: top;
@@ -26,8 +28,8 @@ p {
 
 .container {
     margin: auto;
-    padding: 50px 70px 0 0;
-    max-width: 400px;
+    padding: 50px 130px 0 0;
+    max-width: 500px;
     text-align: center;
 }
 
