@@ -13,7 +13,7 @@ Navigate your way through a series of corporate cliches for each hour of the 9am
 ### Tech stack
 
 - HTML, Javascript
-- Materialize CSS
+- Materialize CSS/JS
 
 ### Wireframes
 
