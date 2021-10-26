@@ -146,6 +146,7 @@ const resetGame = () => {
     response1.style.color = "black"
     response1.style.display = "none"
     response2.style.display = "none"
+    //stop background office noise
     audio.pause()
 }
 
