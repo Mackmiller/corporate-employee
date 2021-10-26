@@ -35,14 +35,12 @@ Initial wireframes to show flow of game.
 
 ### Stretch Goals
 
-- random scenario is thrown in that results in game over.
+- utilizing random number generators:
+    - Wifi outage: random scenario is thrown in that results in game over.
+    - Ceiling leak: random scenario is thrown in that results in rain drop noise for the rest of the game.
 
-or
-
-- two modes, each with separate scenarios
-   - 1: acting as the boss of the corporate employee.
-   - 2: acting as the corporate employee. 
+*used to be interested in having two "player modes", one as boss and one as employee, but I realized that I wanted the focus of the game to be exclusively from the perspective of the employee*
 
 ### Potential roadblocks
 
-- There is a strong potential for errors or disorganization if strong pseudocode planning does NOT occur ahead of time.
+- There was a strong potential for errors or disorganization if strong pseudocode planning did not occur ahead of time. As a result, I spent large amounts of time with psuedocode and sticky notes. Lots and lots of sticky notes. 
