@@ -36,7 +36,9 @@ let count = 0
 //reset game points
 let points = 0
 //music audio
-let audio = new Audio("officesounds.wav")
+let audio = new Audio("audio/officesounds.wav")
+let audio1 = new Audio("audio/happy.wav")
+let audio2 = new Audio("audio/sad.wav")
 
 //DOM variables
 let scenario = document.querySelector("#scenarioBox")
@@ -198,6 +200,7 @@ document.addEventListener ("DOMContentLoaded", () => {
         console.log("The point count is" + points)
         //phone scenario modal is default starting modal because it is first in response1
         if (count === 5) {
+            audio2.play()
             const elem1 = document.querySelector("#modal1")
             const instance = M.Modal.init(elem1, {dismissible: false})
             instance.open()
@@ -209,6 +212,7 @@ document.addEventListener ("DOMContentLoaded", () => {
         //lunch scenario modal
         if (count === 7) {
             response1.href = "#modal2"
+            audio1.play()
             const elem2 = document.querySelector("#modal2")
             const instance2 = M.Modal.init(elem2, {dismissible: false})
             instance2.open()
@@ -218,9 +222,10 @@ document.addEventListener ("DOMContentLoaded", () => {
             const instance2 = M.Modal.init(elem2, {dismissible: false})
             instance2.destroy()
         }
-        //after hours scenario modal
+        //after hours response1 scenario modal
         if (count === 11) {
             response1.href = "#modal6"
+            audio2.play()
             const elem6 = document.querySelector("#modal6")
             const instance6 = M.Modal.init(elem6, {dismissible: false})
             instance6.open()
@@ -240,6 +245,7 @@ document.addEventListener ("DOMContentLoaded", () => {
         console.log("The point count is" + points)
         //leave early scenario modal is default starting modal because it is first in response2
         if (count === 10) {
+            audio2.play()
             const elem3 = document.querySelector("#modal3")
             const instance3 = M.Modal.init(elem3, {dismissible: false})
             instance3.open()
@@ -251,6 +257,7 @@ document.addEventListener ("DOMContentLoaded", () => {
         //after hours scenario modal
         if (count === 11) {
             response2.href = "#modal4"
+            audio1.play()
             const elem4 = document.querySelector("#modal4")
             const instance4 = M.Modal.init(elem4, {dismissible: false})
             instance4.open()
