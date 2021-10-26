@@ -84,8 +84,6 @@ const populateScenarioBox = () => {
         response1.innerHTML = scenarioInfo[3][1]
         response2.innerHTML = scenarioInfo[3][2]
         hourRotation(scenarioInfo[3][3])
-        randomNumber()
-        console.log(number)
     } else if (count == 5) {
         scenario.innerHTML = scenarioInfo[4][0]
         response1.innerHTML = scenarioInfo[4][1]
@@ -165,7 +163,8 @@ const resetGame = () => {
 const randomNumber = () => {
     number = Math.floor(Math.random() * 100)
     //random integer generator 
-    if (number > 89) {
+    //(generated 5 times during game)
+    if (number > 85) {
         response1.href = "#modal5"
         const elem5 = document.querySelector("#modal5")
         const instance5 = M.Modal.init(elem5, {dismissible: false})
@@ -243,13 +242,26 @@ document.addEventListener ("DOMContentLoaded", () => {
         points = points - 5
         console.log("The count is" + count)
         console.log("The point count is" + points)
-        //leave early scenario modal is default starting modal because it is first in response2
+        //working hard/hardly working modal is default starting modal because it is first in response2
+        if (count === 4) {
+            audio1.play()
+            const elem7 = document.querySelector("#modal7")
+            const instance7 = M.Modal.init(elem7, {dismissible: false})
+            instance7.open()
+        } else {
+            const elem7 = document.querySelector("#modal7")
+            const instance7 = M.Modal.init(elem7, {dismissible: false})
+            instance7.destroy()
+        }
+        //leave early scenario
         if (count === 10) {
+            response1.href = "#modal3"
             audio2.play()
             const elem3 = document.querySelector("#modal3")
             const instance3 = M.Modal.init(elem3, {dismissible: false})
             instance3.open()
         } else {
+            response2.href = "#modal7"
             const elem3 = document.querySelector("#modal3")
             const instance3 = M.Modal.init(elem3, {dismissible: false})
             instance3.destroy()
@@ -262,7 +274,7 @@ document.addEventListener ("DOMContentLoaded", () => {
             const instance4 = M.Modal.init(elem4, {dismissible: false})
             instance4.open()
         } else {
-            response1.href = "#modal3"
+            response1.href = "#modal7"
             const elem4 = document.querySelector("#modal4")
             const instance4 = M.Modal.init(elem4, {dismissible: false})
             instance4.destroy()
