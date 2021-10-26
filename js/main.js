@@ -122,10 +122,11 @@ const populateScenarioBox = () => {
             response1.style.color = "green"
             response2.innerHTML = "Stellar work today. You could ask for a raise, but let's be honest... it won't happen any time soon (if at all)."
         }
+        //disable hover
         response1.style.backgroundColor = "#b2dfdb"
         response2.style.backgroundColor = "#b2dfdb"
-        console.log("game complete")
-        //restart button
+        //console.log("game complete")
+        //display restart button
         restartDiv.style.display = "inline-block"
         restart.style.display = "inline-block"
     }
