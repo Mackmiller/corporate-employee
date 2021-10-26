@@ -1,20 +1,3 @@
-// tried to use object at first:
-// const scenarioInfo = {
-//     //scenario 0
-//     scenario0: { 
-//      scenario: "It's Sunday night. Do you have Sunday scaries about work tomorrow?",
-//      //a = positive, b = negative
-//      a: "No, feeling good about tomorrow.",
-//      b: "Yes, feeling anxious about having work tomorrow."
-//      },
-//      //scenario 1
-//      scenario1: { 
-//      scenario: "It's Monday morning. Do you indulge your boss when they ask how your weekend was?",
-//      a: "I give them an overview of my weekend and even ask about theirs.",
-//      b: "I barely respond and move on to work-related topics.",
-//      }
-//  }
- 
 //DECLARE VARIABLES
 //set up arrays
 var scenarioInfo = new Array ();
@@ -29,17 +12,16 @@ scenarioInfo[7] = new Array("<h6><blockquote><strong>You only have a few hours l
 scenarioInfo[8] = new Array("<h6><blockquote><strong>There's technically one hour left of work. Your boss is MIA and has probably left for the day. Do you stay until 5 or leave early?</strong></blockquote></h6>", "I'm being paid to stay until 5, so that's when I'll leave.", "Leaving early, of course! Not interested in a rush hour commute home.", 4)
 scenarioInfo[9] = new Array("<h6><blockquote><strong>It's after hours, but your boss just called your personal phone. Do you answer?</strong></blockquote></h6>", "Yes, it could be something urgent", "No, it can wait until work tomorrow.", 5)
 scenarioInfo[10] = new Array("<h6><blockquote><strong>Navigate your way through a series of corporate cliches for each hour of the nine-to-five work day.</strong></blockquote></h6><p>Don't worry, you'll have your office's classic analog clock helping you keep track of the time of day.</p>")
-//random number
+//declare random number variable
 let number = 0
 //reset count
 let count = 0
 //reset game points
 let points = 0
-//music audio
+//add music audio
 let audio = new Audio("audio/officesounds.wav")
 let audio1 = new Audio("audio/happy.wav")
 let audio2 = new Audio("audio/sad.wav")
-
 //DOM variables
 let scenario = document.querySelector("#scenarioBox")
 let response1 = document.querySelector("#response1")
@@ -52,11 +34,11 @@ let restartDiv = document.querySelector("#restartform")
 const hourRotation = (hour) => {
     let hourDegree = (hour/12) * 360
     let el = document.getElementById("hour");
-    el.style.transform = "rotate( " + hourDegree + "deg)";
-    //console.log(hourDegree)
+    el.style.transform = "rotate( " + hourDegree + "deg)"
 }
 //game
 const populateScenarioBox = () => {
+    //make response divs visible
     response1.style.display = "block"
     response2.style.display = "block"
     //populate divs with scenario info
@@ -66,21 +48,25 @@ const populateScenarioBox = () => {
         response2.innerHTML = scenarioInfo[0][2]
     } else if (count == 2) {
         audio.play()
+        //loop office sounds in background
         audio.loop = true;
         audio.volume = .2
         scenario.innerHTML = scenarioInfo[1][0]
         response1.innerHTML = scenarioInfo[1][1]
         response2.innerHTML = scenarioInfo[1][2]
+        //rotate clock hand depending on number included in scenarioInfo array
         hourRotation(scenarioInfo[1][3])
     } else if (count == 3) {
         scenario.innerHTML = scenarioInfo[2][0]
         response1.innerHTML = scenarioInfo[2][1]
         response2.innerHTML = scenarioInfo[2][2]
         hourRotation(scenarioInfo[2][3])
+        //for the scenarios that don't involve modals, run random num generator
+        //5 chances throughout game for game to restart automatically
         randomNumber()
         console.log(number)
     } else if (count == 4) {
-         scenario.innerHTML = scenarioInfo[3][0]
+        scenario.innerHTML = scenarioInfo[3][0]
         response1.innerHTML = scenarioInfo[3][1]
         response2.innerHTML = scenarioInfo[3][2]
         hourRotation(scenarioInfo[3][3])
@@ -121,17 +107,20 @@ const populateScenarioBox = () => {
         response2.innerHTML = scenarioInfo[9][2]
         hourRotation(scenarioInfo[9][3])
     } else {
+        //end of game
         scenario.innerHTML = "<h5>PERFORMANCE EVALUATION:</h5>"
-        response1.innerHTML = "<strong>" + points + " points </strong>"
         if (points <= 20) {
-            response2.innerHTML = "You made poor choices today from a work standpoint, but you put yourself first- that takes guts! Might I suggest a job change though..."
+            response1.innerHTML = "<strong>POOR</strong>"
             response1.style.color = "red"
+            response2.innerHTML = "You made poor choices today from a work standpoint, but you put yourself first- that takes guts! But maybe a different job would be a better fit."
         } else if (points > 20 && points <= 40) {
-            response2.innerHTML = "You performed as an average employee today: working hard or hardly working."
+            response1.innerHTML = "<strong>MEDIOCRE</strong>"
             response1.style.color = "yellow"
+            response2.innerHTML = "You performed as an average employee today: working hard or hardly working."
         } else if (points > 40) {
-            response2.innerHTML = "Stellar work today. You could ask for a raise, but I'm doubtful it would happen any time soon."
+            response1.innerHTML = "<strong>EXCELLENT</strong>"
             response1.style.color = "green"
+            response2.innerHTML = "Stellar work today. You could ask for a raise, but let's be honest... it won't happen any time soon (if at all)."
         }
         response1.style.backgroundColor = "#b2dfdb"
         response2.style.backgroundColor = "#b2dfdb"
