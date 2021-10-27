@@ -38,8 +38,11 @@ Initial wireframes to show flow of game.
 - utilizing random number generators:
     - Wifi outage: random scenario is thrown in that results in game over.
     - Ceiling leak: random scenario is thrown in that results in rain drop noise for the rest of the game.
+- upon completion of work day, offer two options:
+    - 1: Try again (resets game)
+    - 2: Resign (prompts a resignation scenario)
 
-*used to be interested in having two "player modes", one as boss and one as employee, but I realized that I wanted the focus of the game to be exclusively from the perspective of the employee*
+*I used to be interested in having two "player modes", one as boss and one as employee, but I realized that I wanted the focus of the game to be exclusively from the perspective of the employee*
 
 ### Potential roadblocks
 
