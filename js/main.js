@@ -1,13 +1,13 @@
 //DECLARE VARIABLES
 //set up arrays
 var scenarioInfo = new Array ();
-scenarioInfo[0] = new Array ("<h6><blockquote><strong>It's Sunday night. Sometimes people get anxiety about going to work on Monday, and this is known as the Sunday Scaries. Do you have Sunday Scaries about work tomorrow?</strong></blockquote></h6>", "No, I'm feeling good.", "Yes, I'm already anxious.")
+scenarioInfo[0] = new Array ("<h6><blockquote><strong>It's Sunday night. Are you already feeling anxious about work tomorrow?</strong></blockquote></h6>", "No, I'm feeling good.", "Yes, I'm already anxious.")
 scenarioInfo[1] = new Array("<h6><blockquote><strong>It's Monday morning. Do you indulge your boss when they ask about your weekend?</strong></blockquote></h6>", "I gave an in-depth overview of my weekend and even ask about theirs.", "Not interested in small talk. I quickly move on to work-related conversation.", 9)
 scenarioInfo[2] = new Array("<h6><blockquote><strong>No one seems to be working except for you. Do you keep working anyway?</strong></blockquote></h6>", "Of course I do- I'm getting paid to work!", "No way. If others aren't working, why should I?", 10)
 scenarioInfo[3] = new Array("<h6><blockquote><strong>The desk phone starts ringing, but it's your boss' line and they aren't currently in the office. Do you answer the call?</strong></blockquote></h6>", "Yes, because it could be an important call.", "Not my problem, I'm going to let it ring.", 11)
-scenarioInfo[4] = new Array("<h6><blockquote><strong>It's time for the weekly department meeting. Someone else just took credit for <em>your</em> idea. Should you say something?</strong></blockquote></h6>", "I'm not going to say anything- my time to shine will come later.", "That's not cool. I'm going to bring it up to the employee... or maybe our boss.", 12)
+scenarioInfo[4] = new Array("<h6><blockquote><strong>It's time for the weekly department meeting. Someone else just took credit for <em>your</em> idea. Should you say something?</strong></blockquote></h6>", "I'm not going to say anything. My time to shine will come later.", "That's not cool. I'm going to bring it up to the employee... or maybe our boss.", 12)
 scenarioInfo[5] = new Array("<h6><blockquote><strong>Phew, it's finally time for lunch. You were hoping to leave the office to eat on your own, but a coworker asks to eat with you in the cafeteria instead. Do you accept?</strong></blockquote></h6>", "Alright, I'll stay- it would be good to make friends with colleagues.", "Lunch is a time for me to get <em>away</em> from work. Raincheck maybe?", 1)
-scenarioInfo[6] = new Array("<h6><blockquote><strong>Time to check for emails after lunch. You have a new message that requests information already sent to them in a previous email. How do you reply?</strong></blockquote></h6>", "'Attached is the information you are requesting.'", "'Please see my previous email for the information you are requesting.'", 2)
+scenarioInfo[6] = new Array("<h6><blockquote><strong>Time to check for emails after lunch. You have a new message that requests information already sent to them in a previous email. How do you reply?</strong></blockquote></h6>", "Attached is the information you are requesting.", "Please see my previous email for the information you are requesting.", 2)
 scenarioInfo[7] = new Array("<h6><blockquote><strong>You only have a few hours left in the work day and someone assigns a task to turn in by EOD (end of day). Do you complete the project today?</strong></blockquote></h6>", "Yes, finishing it today because tight deadlines are to be expected.", "No way. Completing this task this afternoon is above my paygrade.", 3)
 scenarioInfo[8] = new Array("<h6><blockquote><strong>There's technically one hour left of work. Your boss is MIA and has probably left for the day. Do you stay until 5 or leave early?</strong></blockquote></h6>", "I'm being paid to stay until 5, so that's when I'll leave.", "Leaving early, of course! Not interested in a rush hour commute home.", 4)
 scenarioInfo[9] = new Array("<h6><blockquote><strong>It's after hours, but your boss just called your personal phone. Do you answer?</strong></blockquote></h6>", "Yes, it could be something urgent", "No, it can wait until work tomorrow.", 5)
@@ -25,6 +25,7 @@ let audio = new Audio("audio/officesounds.wav")
 let audio1 = new Audio("audio/happy.wav")
 let audio2 = new Audio("audio/sad.wav")
 let audio3 = new Audio("audio/splash.wav")
+let audio4 = new Audio("audio/thunder.wav")
 //DOM variables
 let scenario = document.querySelector("#scenarioBox")
 let response1 = document.querySelector("#response1")
@@ -90,14 +91,14 @@ const populateScenarioBox = () => {
         response1.innerHTML = scenarioInfo[6][1]
         response2.innerHTML = scenarioInfo[6][2]
         hourRotation(scenarioInfo[6][3])
-        //random drip
     } else if (count == 8) {
         scenario.innerHTML = scenarioInfo[7][0]
         response1.innerHTML = scenarioInfo[7][1]
         response2.innerHTML = scenarioInfo[7][2]
         hourRotation(scenarioInfo[7][3])
+        //random drip
         randomRain()
-        console.log("random drip"+number2)
+        //console.log("random drip"+number2)
     } else if (count == 9) {
         scenario.innerHTML = scenarioInfo[8][0]
         response1.innerHTML = scenarioInfo[8][1]
@@ -181,6 +182,7 @@ const randomRain = () => {
     //ceiling leak
     if (number2 < 2) {
         //display modal 8 (ceiling leak)
+        audio4.play()
         audio3.play()
         audio3.volume = .4
         audio3.loop = true
