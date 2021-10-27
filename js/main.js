@@ -177,7 +177,7 @@ const randomWifi = () => {
 // random num generator for ceiling leak
 const randomRain = () => {
     //random integer generator 
-    number2 = Math.floor(Math.random() * 4)
+    number2 = Math.floor(Math.random() * 3)
     //ceiling leak
     if (number2 < 2) {
         //display modal 8 (ceiling leak)
@@ -242,7 +242,20 @@ document.addEventListener ("DOMContentLoaded", () => {
             const instance2 = M.Modal.init(elem2, {dismissible: false})
             instance2.destroy()
         }
-        //after hours response1 scenario modal
+        //leave early scenario modal
+        if (count === 10) {
+            response1.href = "#modal9"
+            audio1.play()
+            const elem9 = document.querySelector("#modal9")
+            const instance9 = M.Modal.init(elem9, {dismissible: false})
+            instance9.open()
+        } else {
+            response1.href = "#modal1"
+            const elem9 = document.querySelector("#modal9")
+            const instance9 = M.Modal.init(elem9, {dismissible: false})
+            instance9.destroy()
+        }
+        //after hours scenario modal
         if (count === 11) {
             response1.href = "#modal6"
             audio2.play()
@@ -261,8 +274,9 @@ document.addEventListener ("DOMContentLoaded", () => {
     response2.addEventListener("click", () => {
         count++
         points = points - 5
-        console.log("The count is" + count)
-        console.log("The point count is" + points)
+        //console.log("The count is" + count)
+        //console.log("The point count is" + points)
+        
         //response2 modals:
         //working hard/hardly working modal is default starting modal because it is first in response2
         if (count === 4) {
@@ -290,7 +304,7 @@ document.addEventListener ("DOMContentLoaded", () => {
         }
         //leave early scenario modal
         if (count === 10) {
-            response1.href = "#modal3"
+            response2.href = "#modal3"
             audio2.play()
             const elem3 = document.querySelector("#modal3")
             const instance3 = M.Modal.init(elem3, {dismissible: false})
