@@ -15,13 +15,11 @@ scenarioInfo[10] = new Array("<h6><blockquote><strong>Navigate your way through 
 //set up resignation array
 let resignInfo = new Array ()
 resignInfo[0] = new Array("<h6><blockquote><strong>You've thought about it long and hard and have decided to resign. Do you resign tonight or give two weeks' notice?</strong></blockquote></h6>", "Two weeks notice.", "As soon as possible- tonight.")
-
-
 //declare random number variable for num generator 1 (wifi outage)
 let number = 0
 //declare random number variable for num generator 2 (ceiling leak)
 let number2 = 0
-//reset count
+//reset click count
 let count = 0
 //reset game points
 let points = 0
@@ -47,7 +45,7 @@ const hourRotation = (hour) => {
     let el = document.getElementById("hour");
     el.style.transform = "rotate( " + hourDegree + "deg)"
 }
-//game
+//core game scenarios
 const populateScenarioBox = () => {
     //make response divs visible
     response1.style.display = "block"
@@ -167,7 +165,7 @@ const resetGame = () => {
     audio3.pause()
     audio4.pause()
 }
-
+//resign
 const resignWork = () => {
     scenario.innerHTML = resignInfo[0][0]
     response1.innerHTML = resignInfo[0][1]
@@ -239,17 +237,15 @@ document.addEventListener ("DOMContentLoaded", () => {
         //hide start button
         start.style.display = "none"
     })
-
     //response1 clicked (scenarios 1-10)
     response1.addEventListener("click", () => {
         count++
         points = points + 5
         //console.log("The count is" + count)
         //console.log("The point count is" + points)
-
         //response1 modals:
-        //phone scenario modal is default starting modal because it is first in array for response1 responses
         if (count === 5) {
+            //phone scenario modal is default starting modal because it is first in array for response1 responses
             audio2.play()
             const elem1 = document.querySelector("#modal1")
             const instance = M.Modal.init(elem1, {dismissible: false})
@@ -320,10 +316,9 @@ document.addEventListener ("DOMContentLoaded", () => {
         points = points - 5
         //console.log("The count is" + count)
         //console.log("The point count is" + points)
-        
         //response2 modals:
-        //working hard/hardly working modal is default starting modal because it is first in response2
         if (count === 4) {
+            //working hard/hardly working modal is default starting modal because it is first in response2
             audio1.play()
             const elem7 = document.querySelector("#modal7")
             const instance7 = M.Modal.init(elem7, {dismissible: false})
@@ -388,7 +383,6 @@ document.addEventListener ("DOMContentLoaded", () => {
             instance12.destroy()
         }
     })
-
     //reset game
     restartform.addEventListener ("submit", (e) => {
         resetGame()
