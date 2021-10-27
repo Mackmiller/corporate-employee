@@ -1,6 +1,6 @@
 //DECLARE VARIABLES
-//set up arrays
-var scenarioInfo = new Array ();
+//set up scenario arrays
+let scenarioInfo = new Array ()
 scenarioInfo[0] = new Array ("<h6><blockquote><strong>It's Sunday night. Are you already feeling anxious about work tomorrow?</strong></blockquote></h6>", "No, I'm feeling good.", "Yes, I'm already anxious.")
 scenarioInfo[1] = new Array("<h6><blockquote><strong>It's Monday morning. Do you indulge your boss when they ask about your weekend?</strong></blockquote></h6>", "I gave an in-depth overview of my weekend and even ask about theirs.", "Not interested in small talk. I quickly move on to work-related conversation.", 9)
 scenarioInfo[2] = new Array("<h6><blockquote><strong>No one seems to be working except for you. Do you keep working anyway?</strong></blockquote></h6>", "Of course I do- I'm getting paid to work!", "No way. If others aren't working, why should I?", 10)
@@ -12,6 +12,11 @@ scenarioInfo[7] = new Array("<h6><blockquote><strong>You only have a few hours l
 scenarioInfo[8] = new Array("<h6><blockquote><strong>There's technically one hour left of work. Your boss is MIA and has probably left for the day. Do you stay until 5 or leave early?</strong></blockquote></h6>", "I'm being paid to stay until 5, so that's when I'll leave.", "Leaving early, of course! Not interested in a rush hour commute home.", 4)
 scenarioInfo[9] = new Array("<h6><blockquote><strong>It's after hours, but your boss just called your personal phone. Do you answer?</strong></blockquote></h6>", "Yes, it could be something urgent", "No, it can wait until work tomorrow.", 5)
 scenarioInfo[10] = new Array("<h6><blockquote><strong>Navigate your way through a series of corporate cliches for each hour of the nine-to-five work day.</strong></blockquote></h6><p>Don't worry, you'll have your office's classic analog clock helping you keep track of the time of day.</p>")
+//set up resignation array
+let resignInfo = new Array ()
+resignInfo[0] = new Array("<h6><blockquote><strong>You've thought about it long and hard and have decided to resign. Do you resign tonight or give two weeks' notice?</strong></blockquote></h6>", "Two weeks notice.", "As soon as possible- tonight.")
+
+
 //declare random number variable for num generator 1 (wifi outage)
 let number = 0
 //declare random number variable for num generator 2 (ceiling leak)
@@ -32,6 +37,8 @@ let response1 = document.querySelector("#response1")
 let response2 = document.querySelector("#response2")
 let restart = document.querySelector("#restart")
 let restartDiv = document.querySelector("#restartform")
+let resign = document.querySelector("#resign")
+let resignDiv = document.querySelector("#resignform")
 
 //FUNCTIONS
 //clock
@@ -68,7 +75,7 @@ const populateScenarioBox = () => {
         //for the scenarios that don't involve modals, run random num generator
         //5 chances throughout game for game to restart automatically
         randomWifi()
-        console.log(number)
+        //console.log(number)
     } else if (count == 4) {
         scenario.innerHTML = scenarioInfo[3][0]
         response1.innerHTML = scenarioInfo[3][1]
@@ -85,7 +92,7 @@ const populateScenarioBox = () => {
         response2.innerHTML = scenarioInfo[5][2]
         hourRotation(scenarioInfo[5][3])
         randomWifi()
-        console.log(number)
+        //console.log(number)
     } else if (count == 7) {
         scenario.innerHTML = scenarioInfo[6][0]
         response1.innerHTML = scenarioInfo[6][1]
@@ -105,7 +112,7 @@ const populateScenarioBox = () => {
         response2.innerHTML = scenarioInfo[8][2]
         hourRotation(scenarioInfo[8][3])
         randomWifi()
-        console.log(number)
+        //console.log(number)
     } else if (count == 10) {
         scenario.innerHTML = scenarioInfo[9][0]
         response1.innerHTML = scenarioInfo[9][1]
@@ -134,6 +141,8 @@ const populateScenarioBox = () => {
         //display restart button
         restartDiv.style.display = "inline-block"
         restart.style.display = "inline-block"
+        resignDiv.style.display = "inline-block"
+        resign.style.display = "inline-block"
     }
 }
 //reset
@@ -146,6 +155,8 @@ const resetGame = () => {
     start.style.display = "inline-block"
     restartDiv.style.display = "none"
     restart.style.display = "none"
+    resignDiv.style.display = "none"
+    resign.style.display = "none"
     response1.style.backgroundColor = ""
     response2.style.backgroundColor = ""
     response1.style.color = "black"
@@ -154,6 +165,23 @@ const resetGame = () => {
     //stop background office noise
     audio.pause()
     audio3.pause()
+    audio4.pause()
+}
+
+const resignWork = () => {
+    scenario.innerHTML = resignInfo[0][0]
+    response1.innerHTML = resignInfo[0][1]
+    response2.innerHTML = resignInfo[0][2]
+    audio.pause()
+    audio3.pause()
+    audio4.pause()
+    restartDiv.style.display = "none"
+    restart.style.display = "none"
+    resignDiv.style.display = "none"
+    resign.style.display = "none"
+    response1.style.backgroundColor = ""
+    response2.style.backgroundColor = ""
+    response1.style.color = "black"
 }
 // random num generator for wifi outage
 const randomWifi = () => {
@@ -271,6 +299,20 @@ document.addEventListener ("DOMContentLoaded", () => {
             instance6.destroy()
         }
         populateScenarioBox()
+        //resign
+        if (count === 13) {
+            response1.href = "#modal11"
+            audio2.play()
+            const elem11 = document.querySelector("#modal11")
+            const instance11 = M.Modal.init(elem11, {dismissible: false})
+            instance11.open()
+            resetGame()
+        } else {
+            response1.href = "#modal1"
+            const elem11 = document.querySelector("#modal11")
+            const instance11 = M.Modal.init(elem11, {dismissible: false})
+            instance11.destroy()
+        }
     })
     //response2 clicked (scenarios 1-10)
     response2.addEventListener("click", () => {
@@ -331,11 +373,31 @@ document.addEventListener ("DOMContentLoaded", () => {
             instance4.destroy()
         }
         populateScenarioBox()
+        //resign
+        if (count === 13) {
+            response2.href = "#modal12"
+            audio1.play()
+            const elem12 = document.querySelector("#modal12")
+            const instance12 = M.Modal.init(elem12, {dismissible: false})
+            instance12.open()
+            resetGame()
+        } else {
+            response2.href = "#modal7"
+            const elem12 = document.querySelector("#modal12")
+            const instance12 = M.Modal.init(elem12, {dismissible: false})
+            instance12.destroy()
+        }
     })
 
     //reset game
     restartform.addEventListener ("submit", (e) => {
         resetGame()
+        //console.log("clicked")
+    })
+     //resign
+     resignform.addEventListener ("submit", (e) => {
+        count++
+        resignWork()
         //console.log("clicked")
     })
 })

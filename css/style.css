@@ -62,11 +62,11 @@ p {
     background-color: #b2dfdb;
 }
 
-#restart {
+#restart, #resign {
     margin-top: 15px;
     display: none;
 }
 
-#restart-form {
+#restartform, #resignform {
     display: none;
 }

@@ -20,15 +20,18 @@
             <div id="scenarioBox">
                 <h6><blockquote><strong>Navigate your way through a series of corporate clichés for each hour of the nine-to-five work day.</strong></blockquote></h6><p>Don't worry, you'll have your office's classic analog clock helping you keep track of the time of day.</p>
             </div>
-            <!-- MODAL TEST -->
+            <!-- modal placement -->
             <div class="modal-trigger" href="#modal1" id="response1"></div>
             <div class="modal-trigger" href="#modal7" id="response2"></div>
         <form id="form">
             <input class="waves-teal btn-large" type="submit" value="Start" id="start">
         </form>
         <form id="restartform">
-            <input class="waves-teal btn-large" type="submit" value="Restart" id="restart">
+            <input class="waves-teal btn-large" type="submit" value="Try again" id="restart">
         </form>
+        <form id="resignform">
+          <input class="waves-teal btn-large" type="submit" value="Resign" id="resign">
+      </form>
         </div>
     </div> 
     <!-- modal 1 for count = 5 (phone call scenario)-->
@@ -134,6 +137,26 @@
   </div>
   <div class="modal-footer">
     <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1">Close</a>
+  </div>
+</div>
+<!-- modal 11 for count = 13 (resign RESPONSE1)-->
+<div id="modal11" class="modal">
+  <div class="modal-content">
+    <h4>More work for you</h4>
+    <p>Since you decided to give two weeks' notice, the company is putting you in charge of hiring and training your replacement. These next two weeks will be the most work you've put into the job.</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1">Start over</a>
+  </div>
+</div>
+<!-- modal 12 for count = 13 (resign RESPONSE2)-->
+<div id="modal12" class="modal">
+  <div class="modal-content">
+    <h4>You're free</h4>
+    <p>Onward to bigger and better things! ...and being unemployed starting tomorrow.</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1">Start over</a>
   </div>
 </div>
 
