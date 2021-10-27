@@ -275,6 +275,19 @@ document.addEventListener ("DOMContentLoaded", () => {
             const instance7 = M.Modal.init(elem7, {dismissible: false})
             instance7.destroy()
         }
+        //lunch scenario modal
+        if (count === 7) {
+            response2.href = "#modal10"
+            audio2.play()
+            const elem10 = document.querySelector("#modal10")
+            const instance10 = M.Modal.init(elem10, {dismissible: false})
+            instance10.open()
+        } else {
+            response2.href = "#modal7"
+            const elem10 = document.querySelector("#modal10")
+            const instance10 = M.Modal.init(elem10, {dismissible: false})
+            instance10.destroy()
+        }
         //leave early scenario modal
         if (count === 10) {
             response1.href = "#modal3"
@@ -296,7 +309,7 @@ document.addEventListener ("DOMContentLoaded", () => {
             const instance4 = M.Modal.init(elem4, {dismissible: false})
             instance4.open()
         } else {
-            response1.href = "#modal7"
+            response2.href = "#modal7"
             const elem4 = document.querySelector("#modal4")
             const instance4 = M.Modal.init(elem4, {dismissible: false})
             instance4.destroy()
