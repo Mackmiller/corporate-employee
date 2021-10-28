@@ -30,7 +30,7 @@ let audio2 = new Audio("audio/sad.wav")
 let audio3 = new Audio("audio/splash.wav")
 let audio4 = new Audio("audio/thunder.wav")
 //clock imgs
-let el = document.getElementById("hour");
+let hourHand = document.getElementById("hour");
 //DOM variables
 let scenario = document.querySelector("#scenarioBox")
 let response1 = document.querySelector("#response1")
@@ -44,7 +44,7 @@ let resignDiv = document.querySelector("#resignform")
 //clock
 const hourRotation = (hour) => {
     let hourDegree = (hour/12) * 360
-    el.style.transform = "rotate( " + hourDegree + "deg)"
+    hourHand.style.transform = "rotate( " + hourDegree + "deg)"
 }
 //core game scenario info
 const populateScenarioBox = () => {
@@ -148,7 +148,7 @@ const populateScenarioBox = () => {
 const resetGame = () => {
     count = 0
     points = 0
-    el.style.transform = ""
+    hourHand.style.transform = ""
     scenario.innerHTML = scenarioInfo[10][0]
     response1.innerHTML = ""
     response2.innerHTML = ""
