@@ -48,7 +48,7 @@ Initial wireframes to show flow of game.
 
 There was a strong potential for errors or disorganization if strong pseudocode planning did not occur ahead of time. As a result, I spent large amounts of time with psuedocode. And sticky notes... lots and lots of sticky notes. 
 
-I like to have a set of colored stick notes that represent the user's interactions with the game, and then a set of identical colored stick notes that represent the code necessary for achieving these different user interactions. Here is an example of the code components for a later iteration of the game design:
+I like to have a set of colored stick notes that represent the user's interactions with the game, and then a set of identical colored sticky notes that represent the code necessary for achieving these different user interactions. Here is an example of the code components for a later iteration of the game design:
 
 <img alt="post-it notes coding image" src="imgs/notes.png" />
 
