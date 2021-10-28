@@ -46,7 +46,7 @@ Initial wireframes to show flow of game.
 
 ### Avoiding potential roadblocks
 
-- There was a strong potential for errors or disorganization if strong pseudocode planning did not occur ahead of time. As a result, I spent large amounts of time with psuedocode and sticky notes. Lots and lots of sticky notes. I like to have a set of colored stick notes that represent the user's interactions with the game, and then a set of identical colored stick notes that represent the code necessary for achieving these different user interactions. 
+- There was a strong potential for errors or disorganization if strong pseudocode planning did not occur ahead of time. As a result, I spent large amounts of time with psuedocode and sticky notes... lots and lots of sticky notes. I like to have a set of colored stick notes that represent the user's interactions with the game, and then a set of identical colored stick notes that represent the code necessary for achieving these different user interactions, which is shown below:
 
 <img alt="post-it notes coding image" src="imgs/notes.png" />
 
