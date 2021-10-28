@@ -1,4 +1,4 @@
-//DECLARE VARIABLES
+//============= DECLARE VARIABLES ===============
 //set up scenario arrays
 let scenarioInfo = new Array ()
 scenarioInfo[0] = new Array ("<h6><blockquote><strong>It's Sunday night. Are you already feeling anxious about work tomorrow?</strong></blockquote></h6>", "No, I'm feeling good.", "Yes, I'm already anxious.")
@@ -29,6 +29,8 @@ let audio1 = new Audio("audio/happy.wav")
 let audio2 = new Audio("audio/sad.wav")
 let audio3 = new Audio("audio/splash.wav")
 let audio4 = new Audio("audio/thunder.wav")
+//clock imgs
+let el = document.getElementById("hour");
 //DOM variables
 let scenario = document.querySelector("#scenarioBox")
 let response1 = document.querySelector("#response1")
@@ -38,14 +40,13 @@ let restartDiv = document.querySelector("#restartform")
 let resign = document.querySelector("#resign")
 let resignDiv = document.querySelector("#resignform")
 
-//FUNCTIONS
+//============= DECLARE FUNCTIONS ===============
 //clock
 const hourRotation = (hour) => {
     let hourDegree = (hour/12) * 360
-    let el = document.getElementById("hour");
     el.style.transform = "rotate( " + hourDegree + "deg)"
 }
-//core game scenarios
+//core game scenario info
 const populateScenarioBox = () => {
     //make response divs visible
     response1.style.display = "block"
@@ -147,6 +148,7 @@ const populateScenarioBox = () => {
 const resetGame = () => {
     count = 0
     points = 0
+    el.style.transform = ""
     scenario.innerHTML = scenarioInfo[10][0]
     response1.innerHTML = ""
     response2.innerHTML = ""
@@ -165,7 +167,7 @@ const resetGame = () => {
     audio3.pause()
     audio4.pause()
 }
-//resign
+//resign scenario info (after completion of core game scenarios)
 const resignWork = () => {
     scenario.innerHTML = resignInfo[0][0]
     response1.innerHTML = resignInfo[0][1]
@@ -225,7 +227,7 @@ const randomRain = () => {
     }
 }
 
-//ONCE PAGE LOADS
+//============= ONCE PAGE LOADS ===============
 document.addEventListener ("DOMContentLoaded", () => {
     //start game
     form.addEventListener ("submit", (e) => {
@@ -243,7 +245,7 @@ document.addEventListener ("DOMContentLoaded", () => {
         points = points + 5
         //console.log("The count is" + count)
         //console.log("The point count is" + points)
-        //response1 modals:
+        //response1 modals for when response1 is clicked:
         if (count === 5) {
             //phone scenario modal is default starting modal because it is first in array for response1 responses
             audio2.play()
@@ -294,8 +296,9 @@ document.addEventListener ("DOMContentLoaded", () => {
             const instance6 = M.Modal.init(elem6, {dismissible: false})
             instance6.destroy()
         }
+        //after loading modals that are ready for use, run populateScenarioBox for assigning core game scenario info (based on count)
         populateScenarioBox()
-        //resign
+        //resign scenario info (after completion of core game scenarios)
         if (count === 13) {
             response1.href = "#modal11"
             audio2.play()
@@ -367,8 +370,9 @@ document.addEventListener ("DOMContentLoaded", () => {
             const instance4 = M.Modal.init(elem4, {dismissible: false})
             instance4.destroy()
         }
+        //after loading modals that are ready for use, run populateScenarioBox for assigning core game scenario info (based on count)
         populateScenarioBox()
-        //resign
+        //resign scenario info (after completion of core game scenarios)
         if (count === 13) {
             response2.href = "#modal12"
             audio1.play()
@@ -383,14 +387,15 @@ document.addEventListener ("DOMContentLoaded", () => {
             instance12.destroy()
         }
     })
-    //reset game
+    //reset game button
     restartform.addEventListener ("submit", (e) => {
         resetGame()
         //console.log("clicked")
     })
-     //resign
+     //resign scenario button
      resignform.addEventListener ("submit", (e) => {
         count++
+        //populate box with resignation scenario info
         resignWork()
         //console.log("clicked")
     })
