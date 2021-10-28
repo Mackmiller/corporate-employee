@@ -47,3 +47,7 @@ Initial wireframes to show flow of game.
 ### Potential roadblocks
 
 - There was a strong potential for errors or disorganization if strong pseudocode planning did not occur ahead of time. As a result, I spent large amounts of time with psuedocode and sticky notes. Lots and lots of sticky notes. 
+
+### Deployment
+
+- the game is accessible and ready to play at https://mackmiller.github.io/corporate-employee/
