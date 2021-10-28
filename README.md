@@ -44,10 +44,16 @@ Initial wireframes to show flow of game.
 
 *I used to be interested in having two "player modes", one as boss and one as employee, but I realized that I wanted the focus of the game to be exclusively from the perspective of the employee*
 
-### Potential roadblocks
+### Avoiding potential roadblocks
 
-- There was a strong potential for errors or disorganization if strong pseudocode planning did not occur ahead of time. As a result, I spent large amounts of time with psuedocode and sticky notes. Lots and lots of sticky notes. 
+- There was a strong potential for errors or disorganization if strong pseudocode planning did not occur ahead of time. As a result, I spent large amounts of time with psuedocode and sticky notes. Lots and lots of sticky notes. I like to have a set of colored stick notes that represent the user's interactions with the game, and then a set of identical colored stick notes that represent the code necessary for achieving these different user interactions. 
+
+<img alt="post-it notes coding image" src="imgs/notes.jpg" />
 
 ### Deployment
 
 - the game is accessible and ready to play at https://mackmiller.github.io/corporate-employee/
+
+### Contributors
+
+- Mackenzie Miller, game design + code
