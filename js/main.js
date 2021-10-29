@@ -379,7 +379,7 @@ document.addEventListener ("DOMContentLoaded", () => {
             const elem12 = document.querySelector("#modal12")
             const instance12 = M.Modal.init(elem12, {dismissible: false})
             instance12.open()
-            resetGame()
+            //resetGame()
         } else {
             response2.href = "#modal7"
             const elem12 = document.querySelector("#modal12")
@@ -397,6 +397,7 @@ document.addEventListener ("DOMContentLoaded", () => {
         count++
         //populate box with resignation scenario info
         resignWork()
-        //console.log("clicked")
+        console.log("clicked")
+        console.log(count)
     })
 })
