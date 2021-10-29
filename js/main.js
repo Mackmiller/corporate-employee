@@ -393,7 +393,7 @@ document.addEventListener ("DOMContentLoaded", () => {
         //console.log("clicked")
     })
      //resign scenario button
-     resignform.addEventListener ("submit", (e) => {
+     resignDiv.addEventListener ("submit", (e) => {
         count++
         //populate box with resignation scenario info
         resignWork()
