@@ -111,7 +111,7 @@ const populateScenarioBox = () => {
         response1.innerHTML = scenarioInfo[9][1]
         response2.innerHTML = scenarioInfo[9][2]
         hourRotation(scenarioInfo[9][3])
-    } else {
+    } else if (count == 12) {
         //end of core game/performance evaluation
         scenario.innerHTML = "<h5>PERFORMANCE EVALUATION:</h5>"
         if (points <= 20) {
@@ -135,6 +135,9 @@ const populateScenarioBox = () => {
         restart.style.display = "inline-block"
         resignDiv.style.display = "inline-block"
         resign.style.display = "inline-block"
+    } else if (count === 13) {
+        //resign
+        resignWork()
     }
 }
 // random num generator for wifi outage
@@ -272,6 +275,20 @@ const response1Modals = () => {
         const instance6 = M.Modal.init(elem6, {dismissible: false})
         instance6.destroy()
     }
+    //resign modal for response1
+    if (count === 14) {
+        response1.href = "#modal11"
+        audio2.play()
+        const elem11 = document.querySelector("#modal11")
+        const instance11 = M.Modal.init(elem11, {dismissible: false})
+        instance11.open()
+        resetGame()
+    } else {
+        response1.href = "#modal1"
+        const elem11 = document.querySelector("#modal11")
+        const instance11 = M.Modal.init(elem11, {dismissible: false})
+        instance11.destroy()
+    }
 }
 //modals for response2 click event listener
 const response2Modals = () => {
@@ -326,8 +343,22 @@ const response2Modals = () => {
         const instance4 = M.Modal.init(elem4, {dismissible: false})
         instance4.destroy()
     }
+     //resign modal for response2
+     if (count === 14) {
+        response2.href = "#modal12"
+        audio1.play()
+        const elem12 = document.querySelector("#modal12")
+        const instance12 = M.Modal.init(elem12, {dismissible: false})
+        instance12.open()
+        resetGame()
+    } else {
+        response2.href = "#modal7"
+        const elem12 = document.querySelector("#modal12")
+        const instance12 = M.Modal.init(elem12, {dismissible: false})
+        instance12.destroy()
+    }
 }
-//ignoring hover effect for mobile devices
+//ignore response div hover effect for mobile devices
 function watchForHover() {
     // ignoring emulated mousemove events
     let lastTouchTime = 0
@@ -371,20 +402,6 @@ document.addEventListener ("DOMContentLoaded", () => {
         //run core scenarios
         response1Modals()
         populateScenarioBox()
-        //resign modal for response1
-        if (count === 13) {
-            response1.href = "#modal11"
-            audio2.play()
-            const elem11 = document.querySelector("#modal11")
-            const instance11 = M.Modal.init(elem11, {dismissible: false})
-            instance11.open()
-            resetGame()
-        } else {
-            response1.href = "#modal1"
-            const elem11 = document.querySelector("#modal11")
-            const instance11 = M.Modal.init(elem11, {dismissible: false})
-            instance11.destroy()
-        }
     })
     //response2 clicked (scenarios 1-10)
     response2.addEventListener("click", () => {
@@ -394,21 +411,6 @@ document.addEventListener ("DOMContentLoaded", () => {
         //run core scenarios
         response2Modals()
         populateScenarioBox()
-        //resign modal for response2
-        if (count === 13) {
-            response2.href = "#modal12"
-            audio1.play()
-            const elem12 = document.querySelector("#modal12")
-            const instance12 = M.Modal.init(elem12, {dismissible: false})
-            instance12.open()
-            resetGame()
-        } else {
-            response2.href = "#modal7"
-            const elem12 = document.querySelector("#modal12")
-            const instance12 = M.Modal.init(elem12, {dismissible: false})
-            instance12.destroy()
-        }
-       
     })
     //reset game button
     restartform.addEventListener ("submit", (e) => {
@@ -417,6 +419,8 @@ document.addEventListener ("DOMContentLoaded", () => {
      //resign scenario button
      resignDiv.addEventListener ("submit", (e) => {
         count++
-        resignWork()
+        response1Modals()
+        response2Modals()
+        populateScenarioBox()
     })
 })
