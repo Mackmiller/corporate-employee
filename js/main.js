@@ -1,5 +1,5 @@
 //============= DECLARE VARIABLES ===============
-//set up scenario arrays
+//core scenario arrays
 let scenarioInfo = new Array ()
 scenarioInfo[0] = new Array ("<h6><blockquote><strong>It's Sunday night. Are you already feeling anxious about work tomorrow?</strong></blockquote></h6>", "No, I'm feeling good.", "Yes, I'm already anxious.")
 scenarioInfo[1] = new Array("<h6><blockquote><strong>It's Monday morning. Do you indulge your boss when they ask about your weekend?</strong></blockquote></h6>", "I gave an in-depth overview of my weekend and even ask about theirs.", "Not interested in small talk. I quickly move on to work-related conversation.", 9)
@@ -12,26 +12,25 @@ scenarioInfo[7] = new Array("<h6><blockquote><strong>You only have a few hours l
 scenarioInfo[8] = new Array("<h6><blockquote><strong>There's technically one hour left of work. Your boss is nowhere to be seen. Do you stay until 5 or leave early?</strong></blockquote></h6>", "I'm being paid to stay until 5, so that's when I'll leave.", "Leaving early, of course! Not interested in a rush hour commute home.", 4)
 scenarioInfo[9] = new Array("<h6><blockquote><strong>It's after hours, but your boss just called your personal phone. Do you answer?</strong></blockquote></h6>", "Yes, it could be something urgent", "No, it can wait until work tomorrow.", 5)
 scenarioInfo[10] = new Array("<h6><blockquote><strong>Navigate your way through a series of corporate cliches for each hour of the nine-to-five work day.</strong></blockquote></h6><p>Don't worry, you'll have your office's classic analog clock helping you keep track of the time of day.</p>")
-//set up resignation array
+//resignation array
 let resignInfo = new Array ()
 resignInfo[0] = new Array("<h6><blockquote><strong>You've thought about it long and hard and have decided to resign. Do you resign tonight or give two weeks' notice?</strong></blockquote></h6>", "Two weeks notice.", "As soon as possible- tonight.")
-//declare random number variable for num generator 1 (wifi outage)
+//random number variable for num generator 1 (wifi outage)
 let number = 0
-//declare random number variable for num generator 2 (ceiling leak)
+//random number variable for num generator 2 (ceiling leak)
 let number2 = 0
 //reset click count
 let count = 0
 //reset game points
 let points = 0
 //add music audio
-let audio = new Audio("audio/officesounds.wav")
-let audio1 = new Audio("audio/happy.wav")
-let audio2 = new Audio("audio/sad.wav")
-let audio3 = new Audio("audio/splash.wav")
-let audio4 = new Audio("audio/thunder.wav")
-//clock imgs
-let hourHand = document.getElementById("hour");
+let audio = new Audio("audio/officesounds.wav") //background noise
+let audio1 = new Audio("audio/happy.wav") //positive sound
+let audio2 = new Audio("audio/sad.wav") //negative sound
+let audio3 = new Audio("audio/splash.wav") //ceiling drip
+let audio4 = new Audio("audio/thunder.wav") //thunder clap
 //DOM variables
+let hourHand = document.getElementById("hour") //clock
 let scenario = document.querySelector("#scenarioBox")
 let response1 = document.querySelector("#response1")
 let response2 = document.querySelector("#response2")
@@ -40,7 +39,7 @@ let restartDiv = document.querySelector("#restartform")
 let resign = document.querySelector("#resign")
 let resignDiv = document.querySelector("#resignform")
 
-//============= DECLARE FUNCTIONS ===============
+//============= GAME FUNCTIONS ===============
 //clock
 const hourRotation = (hour) => {
     let hourDegree = (hour/12) * 360
@@ -48,33 +47,29 @@ const hourRotation = (hour) => {
 }
 //core game scenario info
 const populateScenarioBox = () => {
-    //make response divs visible
     response1.style.display = "block"
     response2.style.display = "block"
-    //populate divs with scenario info
+    //populate divs with scenario info, based on click count
     if (count == 1) {
         scenario.innerHTML = scenarioInfo[0][0]
         response1.innerHTML = scenarioInfo[0][1]
         response2.innerHTML = scenarioInfo[0][2]
     } else if (count == 2) {
         audio.play()
-        //loop office sounds in background
         audio.loop = true;
         audio.volume = .2
         scenario.innerHTML = scenarioInfo[1][0]
         response1.innerHTML = scenarioInfo[1][1]
         response2.innerHTML = scenarioInfo[1][2]
-        //rotate clock hand depending on number included in scenarioInfo array
+        //rotate clock hand based on scenarioInfo array element 3
         hourRotation(scenarioInfo[1][3])
     } else if (count == 3) {
         scenario.innerHTML = scenarioInfo[2][0]
         response1.innerHTML = scenarioInfo[2][1]
         response2.innerHTML = scenarioInfo[2][2]
         hourRotation(scenarioInfo[2][3])
-        //for the scenarios that don't involve modals, run random num generator
-        //5 chances throughout game for game to restart automatically
+        //potential random wifi outage
         randomWifi()
-        //console.log(number)
     } else if (count == 4) {
         scenario.innerHTML = scenarioInfo[3][0]
         response1.innerHTML = scenarioInfo[3][1]
@@ -90,8 +85,8 @@ const populateScenarioBox = () => {
         response1.innerHTML = scenarioInfo[5][1]
         response2.innerHTML = scenarioInfo[5][2]
         hourRotation(scenarioInfo[5][3])
+        //potential random wifi outage
         randomWifi()
-        //console.log(number)
     } else if (count == 7) {
         scenario.innerHTML = scenarioInfo[6][0]
         response1.innerHTML = scenarioInfo[6][1]
@@ -102,23 +97,22 @@ const populateScenarioBox = () => {
         response1.innerHTML = scenarioInfo[7][1]
         response2.innerHTML = scenarioInfo[7][2]
         hourRotation(scenarioInfo[7][3])
-        //random drip
+        //potential random drip
         randomRain()
-        //console.log("random drip"+number2)
     } else if (count == 9) {
         scenario.innerHTML = scenarioInfo[8][0]
         response1.innerHTML = scenarioInfo[8][1]
         response2.innerHTML = scenarioInfo[8][2]
         hourRotation(scenarioInfo[8][3])
+        //potential random wifi outage
         randomWifi()
-        //console.log(number)
     } else if (count == 10) {
         scenario.innerHTML = scenarioInfo[9][0]
         response1.innerHTML = scenarioInfo[9][1]
         response2.innerHTML = scenarioInfo[9][2]
         hourRotation(scenarioInfo[9][3])
     } else {
-        //end of game
+        //end of core game/performance evaluation
         scenario.innerHTML = "<h5>PERFORMANCE EVALUATION:</h5>"
         if (points <= 20) {
             response1.innerHTML = "<strong>POOR</strong>"
@@ -136,52 +130,12 @@ const populateScenarioBox = () => {
         //disable hover
         response1.style.backgroundColor = "#b2dfdb"
         response2.style.backgroundColor = "#b2dfdb"
-        //console.log("game complete")
-        //display restart button
+        //re-display restart button
         restartDiv.style.display = "inline-block"
         restart.style.display = "inline-block"
         resignDiv.style.display = "inline-block"
         resign.style.display = "inline-block"
     }
-}
-//reset
-const resetGame = () => {
-    count = 0
-    points = 0
-    hourHand.style.transform = ""
-    scenario.innerHTML = scenarioInfo[10][0]
-    response1.innerHTML = ""
-    response2.innerHTML = ""
-    start.style.display = "inline-block"
-    restartDiv.style.display = "none"
-    restart.style.display = "none"
-    resignDiv.style.display = "none"
-    resign.style.display = "none"
-    response1.style.backgroundColor = ""
-    response2.style.backgroundColor = ""
-    response1.style.color = "black"
-    response1.style.display = "none"
-    response2.style.display = "none"
-    //stop background office noise
-    audio.pause()
-    audio3.pause()
-    audio4.pause()
-}
-//resign scenario info (after completion of core game scenarios)
-const resignWork = () => {
-    scenario.innerHTML = resignInfo[0][0]
-    response1.innerHTML = resignInfo[0][1]
-    response2.innerHTML = resignInfo[0][2]
-    audio.pause()
-    audio3.pause()
-    audio4.pause()
-    restartDiv.style.display = "none"
-    restart.style.display = "none"
-    resignDiv.style.display = "none"
-    resign.style.display = "none"
-    response1.style.backgroundColor = ""
-    response2.style.backgroundColor = ""
-    response1.style.color = "black"
 }
 // random num generator for wifi outage
 const randomWifi = () => {
@@ -226,6 +180,153 @@ const randomRain = () => {
         instance8.destroy()
     }
 }
+//resign scenario
+const resignWork = () => {
+    scenario.innerHTML = resignInfo[0][0]
+    response1.innerHTML = resignInfo[0][1]
+    response2.innerHTML = resignInfo[0][2]
+    audio.pause()
+    audio3.pause()
+    audio4.pause()
+    restartDiv.style.display = "none"
+    restart.style.display = "none"
+    resignDiv.style.display = "none"
+    resign.style.display = "none"
+    response1.style.backgroundColor = ""
+    response2.style.backgroundColor = ""
+    response1.style.color = "black"
+}
+//reset
+const resetGame = () => {
+    count = 0
+    points = 0
+    hourHand.style.transform = ""
+    scenario.innerHTML = scenarioInfo[10][0]
+    response1.innerHTML = ""
+    response2.innerHTML = ""
+    start.style.display = "inline-block"
+    restartDiv.style.display = "none"
+    restart.style.display = "none"
+    resignDiv.style.display = "none"
+    resign.style.display = "none"
+    response1.style.backgroundColor = ""
+    response2.style.backgroundColor = ""
+    response1.style.color = "black"
+    response1.style.display = "none"
+    response2.style.display = "none"
+    //stop all audio
+    audio.pause()
+    audio3.pause()
+    audio4.pause()
+}
+//============= MODAL FUNCTIONS ===============
+//modals for response1 click event listener
+const response1Modals = () => {
+    if (count === 5) {
+        //phone scenario modal is default starting modal because it is first in array for response1 responses
+        audio2.play()
+        const elem1 = document.querySelector("#modal1")
+        const instance = M.Modal.init(elem1, {dismissible: false})
+        instance.open()
+    } else {
+        const elem1 = document.querySelector("#modal1")
+        const instance = M.Modal.init(elem1, {dismissible: false})
+        instance.destroy()
+    }
+    //lunch scenario modal
+    if (count === 7) {
+        response1.href = "#modal2"
+        audio1.play()
+        const elem2 = document.querySelector("#modal2")
+        const instance2 = M.Modal.init(elem2, {dismissible: false})
+        instance2.open()
+    } else {
+        response1.href = "#modal1"
+        const elem2 = document.querySelector("#modal2")
+        const instance2 = M.Modal.init(elem2, {dismissible: false})
+        instance2.destroy()
+    }
+    //leave early scenario modal
+    if (count === 10) {
+        response1.href = "#modal9"
+        audio1.play()
+        const elem9 = document.querySelector("#modal9")
+        const instance9 = M.Modal.init(elem9, {dismissible: false})
+        instance9.open()
+    } else {
+        response1.href = "#modal1"
+        const elem9 = document.querySelector("#modal9")
+        const instance9 = M.Modal.init(elem9, {dismissible: false})
+        instance9.destroy()
+    }
+    //after hours scenario modal
+    if (count === 11) {
+        response1.href = "#modal6"
+        audio2.play()
+        const elem6 = document.querySelector("#modal6")
+        const instance6 = M.Modal.init(elem6, {dismissible: false})
+        instance6.open()
+    } else {
+        response1.href = "#modal1"
+        const elem6 = document.querySelector("#modal6")
+        const instance6 = M.Modal.init(elem6, {dismissible: false})
+        instance6.destroy()
+    }
+}
+//modals for response2 click event listener
+const response2Modals = () => {
+     //response2 modals:
+     if (count === 4) {
+        //working hard/hardly working modal is default starting modal because it is first in response2
+        audio1.play()
+        const elem7 = document.querySelector("#modal7")
+        const instance7 = M.Modal.init(elem7, {dismissible: false})
+        instance7.open()
+    } else {
+        const elem7 = document.querySelector("#modal7")
+        const instance7 = M.Modal.init(elem7, {dismissible: false})
+        instance7.destroy()
+    }
+    //lunch scenario modal
+    if (count === 7) {
+        response2.href = "#modal10"
+        audio2.play()
+        const elem10 = document.querySelector("#modal10")
+        const instance10 = M.Modal.init(elem10, {dismissible: false})
+        instance10.open()
+    } else {
+        response2.href = "#modal7"
+        const elem10 = document.querySelector("#modal10")
+        const instance10 = M.Modal.init(elem10, {dismissible: false})
+        instance10.destroy()
+    }
+    //leave early scenario modal
+    if (count === 10) {
+        response2.href = "#modal3"
+        audio2.play()
+        const elem3 = document.querySelector("#modal3")
+        const instance3 = M.Modal.init(elem3, {dismissible: false})
+        instance3.open()
+    } else {
+        response2.href = "#modal7"
+        const elem3 = document.querySelector("#modal3")
+        const instance3 = M.Modal.init(elem3, {dismissible: false})
+        instance3.destroy()
+    }
+    //after hours scenario modal
+    if (count === 11) {
+        response2.href = "#modal4"
+        audio1.play()
+        const elem4 = document.querySelector("#modal4")
+        const instance4 = M.Modal.init(elem4, {dismissible: false})
+        instance4.open()
+    } else {
+        response2.href = "#modal7"
+        const elem4 = document.querySelector("#modal4")
+        const instance4 = M.Modal.init(elem4, {dismissible: false})
+        instance4.destroy()
+    }
+}
 
 //============= ONCE PAGE LOADS ===============
 document.addEventListener ("DOMContentLoaded", () => {
@@ -235,70 +336,16 @@ document.addEventListener ("DOMContentLoaded", () => {
         count++
         //change text to scenario 0
         populateScenarioBox()
-        //console.log(count)
-        //hide start button
         start.style.display = "none"
     })
     //response1 clicked (scenarios 1-10)
     response1.addEventListener("click", () => {
         count++
         points = points + 5
-        //console.log("The count is" + count)
-        //console.log("The point count is" + points)
-        //response1 modals for when response1 is clicked:
-        if (count === 5) {
-            //phone scenario modal is default starting modal because it is first in array for response1 responses
-            audio2.play()
-            const elem1 = document.querySelector("#modal1")
-            const instance = M.Modal.init(elem1, {dismissible: false})
-            instance.open()
-        } else {
-            const elem1 = document.querySelector("#modal1")
-            const instance = M.Modal.init(elem1, {dismissible: false})
-            instance.destroy()
-        }
-        //lunch scenario modal
-        if (count === 7) {
-            response1.href = "#modal2"
-            audio1.play()
-            const elem2 = document.querySelector("#modal2")
-            const instance2 = M.Modal.init(elem2, {dismissible: false})
-            instance2.open()
-        } else {
-            response1.href = "#modal1"
-            const elem2 = document.querySelector("#modal2")
-            const instance2 = M.Modal.init(elem2, {dismissible: false})
-            instance2.destroy()
-        }
-        //leave early scenario modal
-        if (count === 10) {
-            response1.href = "#modal9"
-            audio1.play()
-            const elem9 = document.querySelector("#modal9")
-            const instance9 = M.Modal.init(elem9, {dismissible: false})
-            instance9.open()
-        } else {
-            response1.href = "#modal1"
-            const elem9 = document.querySelector("#modal9")
-            const instance9 = M.Modal.init(elem9, {dismissible: false})
-            instance9.destroy()
-        }
-        //after hours scenario modal
-        if (count === 11) {
-            response1.href = "#modal6"
-            audio2.play()
-            const elem6 = document.querySelector("#modal6")
-            const instance6 = M.Modal.init(elem6, {dismissible: false})
-            instance6.open()
-        } else {
-            response1.href = "#modal1"
-            const elem6 = document.querySelector("#modal6")
-            const instance6 = M.Modal.init(elem6, {dismissible: false})
-            instance6.destroy()
-        }
-        //after loading modals that are ready for use, run populateScenarioBox for assigning core game scenario info (based on count)
+        //run core scenarios
+        response1Modals()
         populateScenarioBox()
-        //resign scenario info (after completion of core game scenarios)
+        //resign modal for response1
         if (count === 13) {
             response1.href = "#modal11"
             audio2.play()
@@ -315,64 +362,13 @@ document.addEventListener ("DOMContentLoaded", () => {
     })
     //response2 clicked (scenarios 1-10)
     response2.addEventListener("click", () => {
+        //adjust counters
         count++
         points = points - 5
-        //console.log("The count is" + count)
-        //console.log("The point count is" + points)
-        //response2 modals:
-        if (count === 4) {
-            //working hard/hardly working modal is default starting modal because it is first in response2
-            audio1.play()
-            const elem7 = document.querySelector("#modal7")
-            const instance7 = M.Modal.init(elem7, {dismissible: false})
-            instance7.open()
-        } else {
-            const elem7 = document.querySelector("#modal7")
-            const instance7 = M.Modal.init(elem7, {dismissible: false})
-            instance7.destroy()
-        }
-        //lunch scenario modal
-        if (count === 7) {
-            response2.href = "#modal10"
-            audio2.play()
-            const elem10 = document.querySelector("#modal10")
-            const instance10 = M.Modal.init(elem10, {dismissible: false})
-            instance10.open()
-        } else {
-            response2.href = "#modal7"
-            const elem10 = document.querySelector("#modal10")
-            const instance10 = M.Modal.init(elem10, {dismissible: false})
-            instance10.destroy()
-        }
-        //leave early scenario modal
-        if (count === 10) {
-            response2.href = "#modal3"
-            audio2.play()
-            const elem3 = document.querySelector("#modal3")
-            const instance3 = M.Modal.init(elem3, {dismissible: false})
-            instance3.open()
-        } else {
-            response2.href = "#modal7"
-            const elem3 = document.querySelector("#modal3")
-            const instance3 = M.Modal.init(elem3, {dismissible: false})
-            instance3.destroy()
-        }
-        //after hours scenario modal
-        if (count === 11) {
-            response2.href = "#modal4"
-            audio1.play()
-            const elem4 = document.querySelector("#modal4")
-            const instance4 = M.Modal.init(elem4, {dismissible: false})
-            instance4.open()
-        } else {
-            response2.href = "#modal7"
-            const elem4 = document.querySelector("#modal4")
-            const instance4 = M.Modal.init(elem4, {dismissible: false})
-            instance4.destroy()
-        }
-        //after loading modals that are ready for use, run populateScenarioBox for assigning core game scenario info (based on count)
+        //run core scenarios
+        response2Modals()
         populateScenarioBox()
-        //resign scenario info (after completion of core game scenarios)
+        //resign modal for response2
         if (count === 13) {
             response2.href = "#modal12"
             audio1.play()
@@ -386,18 +382,15 @@ document.addEventListener ("DOMContentLoaded", () => {
             const instance12 = M.Modal.init(elem12, {dismissible: false})
             instance12.destroy()
         }
+       
     })
     //reset game button
     restartform.addEventListener ("submit", (e) => {
         resetGame()
-        //console.log("clicked")
     })
      //resign scenario button
      resignDiv.addEventListener ("submit", (e) => {
         count++
-        //populate box with resignation scenario info
         resignWork()
-        console.log("clicked")
-        console.log(count)
     })
 })
