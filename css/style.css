@@ -86,7 +86,7 @@ body.hasHover #response2:hover {
     }
 
     h6 {
-        font-size: 30px;
+        font-size: 26px;
     }
 
     div p, #response1, #response2 {
@@ -107,10 +107,12 @@ body.hasHover #response2:hover {
         height: 60px;
         width: 165px;
         font-size: 20px;
+        font-weight: bold;
     }
     .btn {
         width: 165px;
         font-size: 20px;
+        font-weight: bold;
     }
     #start {
         margin-bottom: 10px;

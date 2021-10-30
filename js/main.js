@@ -207,7 +207,7 @@ const resetGame = () => {
     scenario.innerHTML = scenarioInfo[10][0]
     response1.innerHTML = ""
     response2.innerHTML = ""
-    start.style.display = "inline-block"
+    start.style.display = ""
     restartDiv.style.display = "none"
     restart.style.display = "none"
     resignDiv.style.display = "none"
