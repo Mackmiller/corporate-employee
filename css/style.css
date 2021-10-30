@@ -103,5 +103,23 @@ body.hasHover #response2:hover {
         max-width: 700px;
         text-align: center;
     }
+    .btn-large {
+        height: 60px;
+        width: 165px;
+        font-size: 20px;
+    }
+    .btn {
+        width: 165px;
+        font-size: 20px;
+    }
+    #start {
+        margin-bottom: 10px;
+    }
+    #restart {
+        margin-right: 5px;
+    }
+    #resign {
+        margin-left: 5px;
+    }
 
 }
