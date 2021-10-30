@@ -111,7 +111,7 @@ const populateScenarioBox = () => {
         response1.innerHTML = scenarioInfo[9][1]
         response2.innerHTML = scenarioInfo[9][2]
         hourRotation(scenarioInfo[9][3])
-    } else if (count == 12) {
+    } else if (count == 11) {
         //end of core game/performance evaluation
         scenario.innerHTML = "<h5>PERFORMANCE EVALUATION:</h5>"
         if (points <= 20) {
@@ -135,7 +135,7 @@ const populateScenarioBox = () => {
         restart.style.display = "inline-block"
         resignDiv.style.display = "inline-block"
         resign.style.display = "inline-block"
-    } else if (count === 13) {
+    } else if (count === 12) {
         //resign
         resignWork()
     }
@@ -276,7 +276,7 @@ const response1Modals = () => {
         instance6.destroy()
     }
     //resign modal for response1
-    if (count === 14) {
+    if (count === 13) {
         response1.href = "#modal11"
         audio2.play()
         const elem11 = document.querySelector("#modal11")
@@ -344,7 +344,7 @@ const response2Modals = () => {
         instance4.destroy()
     }
      //resign modal for response2
-     if (count === 14) {
+     if (count === 13) {
         response2.href = "#modal12"
         audio1.play()
         const elem12 = document.querySelector("#modal12")
@@ -399,7 +399,6 @@ document.addEventListener ("DOMContentLoaded", () => {
     response1.addEventListener("click", () => {
         count++
         points = points + 5
-        //run core scenarios
         response1Modals()
         populateScenarioBox()
     })
@@ -408,7 +407,6 @@ document.addEventListener ("DOMContentLoaded", () => {
         //adjust counters
         count++
         points = points - 5
-        //run core scenarios
         response2Modals()
         populateScenarioBox()
     })
