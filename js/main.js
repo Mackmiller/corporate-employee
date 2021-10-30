@@ -327,9 +327,35 @@ const response2Modals = () => {
         instance4.destroy()
     }
 }
+//ignoring hover effect for mobile devices
+function watchForHover() {
+    // ignoring emulated mousemove events
+    let lastTouchTime = 0
+    //display hover div style (desktop)
+    function enableHover() {
+        if (new Date() - lastTouchTime < 500) return 
+        document.body.classList.add('hasHover')
+    }
+    //disable hover div style
+    function disableHover() {
+        document.body.classList.remove('hasHover')
+    }
+    //occurs right after touchstart
+    function updateLastTouchTime() {
+        lastTouchTime = new Date()
+    }
+    //when user touches an element (mobile)
+    document.addEventListener('touchstart', updateLastTouchTime, true)
+    document.addEventListener('touchstart', disableHover, true)
+    //when user clicks an element (desktop)
+    document.addEventListener('mousemove', enableHover, true)
+    enableHover()
+  }
 
 //============= ONCE PAGE LOADS ===============
 document.addEventListener ("DOMContentLoaded", () => {
+    //check for touchstart
+    watchForHover()
     //start game
     form.addEventListener ("submit", (e) => {
         e.preventDefault()
