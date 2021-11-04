@@ -131,6 +131,8 @@ const populateScenarioBox = () => {
         response1.style.backgroundColor = "#b2dfdb"
         response2.style.backgroundColor = "#b2dfdb"
         //re-display restart button
+        // setTimeout(()=> {
+        // }, 2000)
         restartDiv.style.display = "inline-block"
         restart.style.display = "inline-block"
         resignDiv.style.display = "inline-block"
@@ -417,6 +419,8 @@ document.addEventListener ("DOMContentLoaded", () => {
      //resign scenario button
      resignDiv.addEventListener ("submit", (e) => {
         count++
+        //added this 11/4/21 to guarantee next screen view:
+        resignWork()
         response1Modals()
         response2Modals()
         populateScenarioBox()
