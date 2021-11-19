@@ -39,6 +39,7 @@ let restartDiv = document.querySelector("#restartform")
 let resign = document.querySelector("#resign")
 let resignDiv = document.querySelector("#resignform")
 
+
 //============= GAME FUNCTIONS ===============
 //clock
 const hourRotation = (hour) => {
