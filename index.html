@@ -1,97 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <title>CORPORATE EMPLOYEE</title>
-    <link rel="icon" href="imgs/full_clock.png" type="image/icon type">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <title>CORPORATE EMPLOYEE</title>
 </head>
 <body>
-    <h3>Corporate Employee</h3>
-    <div class="clock">
-        <img class="img1" id="face" src="imgs/clock.png"/>
-        <img class="img2" id="hour" src="imgs/clockhour.png"/>
-    </div>
-    <div class="background">
-        <div class="container">
-            <div id="scenarioBox">
-                <h6><blockquote><strong>Navigate your way through a series of corporate clichés for each hour of the nine-to-five work day.</strong></blockquote></h6><p>Don't worry, you'll have your office's classic analog clock helping you keep track of the time of day.</p>
-            </div>
-            <!-- modal placement -->
-            <div class="modal-trigger" href="#modal1" id="response1"></div>
-            <div class="modal-trigger" href="#modal7" id="response2"></div>
-        <form id="form">
-            <input class="waves-teal btn-large" type="submit" value="Begin" id="start">
-        </form>
-        <form id="restartform">
-            <input class="waves-teal btn-large" type="submit" value="Try again" id="restart">
-        </form>
-        <form id="resignform">
-          <input class="red darken-1 btn-large" type="submit" value="Resign" id="resign">
-      </form>
-        </div>
-    </div> 
-    <!--------------------------- PREP MODALS FOR LATER USE -------------------------->
-    <!-- modal 1 for count = 5 (phone call scenario)-->
-    <div id="modal1" class="modal">
-        <div class="modal-content">
-          <h4>An angry VIP client</h4>
-          <p>Despite your best intentions with picking up your boss' phone, you ended up on the receiving end of great dissatisfaction from a high-profile clients. Maybe let the phone go to voicemail next time.</p>
-        </div>
-        <div class="modal-footer">
-          <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1">Next</a>
+  <h3>CORPORATE EMPLOYEE</h3>
+  <div class="clock">
+    <img class="img1" id="face" src="imgs/clock.png"/>
+    <img class="img2" id="hour" src="imgs/clockhour.png"/>
+  </div>
+  <div class="background">
+    <div class="container">
+
+      <h6 id="inp"><blockquote><strong>Navigate your way through a series of corporate clichés for each hour of the nine-to-five work day.</strong></blockquote></h6>
+      <p id="inp2">Don't worry, you'll have your office's classic analog clock helping you keep track of the time of day.</p>
+
+      <div id="text"><br></div>
+      <div class="modal-trigger" href="#modal1" id="response1"></div>
+      <div class="modal-trigger" href="#modal7" id="response2"></div>
+      <div ng-app>
+        <div id="inp">
+          <form onsubmit="Start()">
+                <button class="start waves-teal btn" id="start" type="submit" onclick="dis() ">Begin</button>
+          </form>
         </div>
       </div>
     </div>
-    <!-- modal 2 for count = 7 (lunch scenario RESPONSE1)-->
-    <div id="modal2" class="modal">
-        <div class="modal-content">
-          <h4>Work BFFs for life!</h4>
-          <p>Going to lunch with this coworker is the best thing you could have done! You and your new work bestie will spend all breaks and lunches together for the foreseeable future.</p>
-        </div>
-        <div class="modal-footer">
-          <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1">Next</a>
-        </div>
-      </div>
-    </div>
-    <!-- modal 3 for count = 10 (leaving early RESPONSE2)-->
-    <div id="modal3" class="modal">
-        <div class="modal-content">
-          <h4>A cringe-worthy encounter</h4>
-          <p>As you zoom out of the parking lot, you make eye contact with the department head (your boss' boss). Hopefully they don't mention this to your boss tomorrow...</p>
-        </div>
-        <div class="modal-footer">
-          <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1">Next</a>
-        </div>
-      </div>
-    </div>
-   <!-- modal 4 for count = 11 (after hours scenario RESPONSE2)-->
-   <div id="modal4" class="modal">
+  </div>
+  <!-- modal 1 (phone call scenario RESPONSE 1)-->
+  <div id="modal1" class="modal">
     <div class="modal-content">
-      <h4>Setting boundaries for the win</h4>
-      <p>Not answering the phone now is successfully setting up boundaries with your boss for later: you will no longer receive communication from them outside of work hours. Nice!</p>
+      <h4>An angry VIP client</h4>
+      <p>Despite your best intentions with picking up your boss' phone, you ended up on the receiving end of great dissatisfaction from a high-profile clients. Maybe let the phone go to voicemail next time.</p>
     </div>
     <div class="modal-footer">
       <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1">Next</a>
     </div>
   </div>
-</div>
-  <!-- modal 5 for count = ? wifi outage-->
-  <div id="modal5" class="modal">
+  </div>   
+  <!-- modal 2 (lunch scenario RESPONSE1)-->
+  <div id="modal2" class="modal">
     <div class="modal-content">
-      <h4>Wifi outage- try again tomorrow</h4>
-      <p>The high and mighty IT department has fallen... temporarily. A building-wide wifi outage has caused all online work and phone communication to stop. After sitting around for a while, it's time to go home and try again tomorrow.</p>
+      <h4>Work BFFs for life!</h4>
+      <p>Going to lunch with this coworker is the best thing you could have done! You and your new work bestie will spend all breaks and lunches together for the foreseeable future.</p>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1">Try again</a>
+      <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1">Next</a>
     </div>
   </div>
-</div>
- <!-- modal 6 for count = 11 (after hours scenario RESPONSE1)-->
- <div id="modal6" class="modal">
+  </div>   
+  <!-- modal 3 (lunch scenario RESPONSE2)-->
+  <div id="modal3" class="modal">
+    <div class="modal-content">
+      <h4>Not social, not good</h4>
+      <p>I guess the only thing you like about your office is the free coffee and printing priviledges, since you don't seem interested in making friends with coworkers.</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1">Next</a>
+    </div>
+  </div>   
+  <!-- modal 4 (working hard/hardly working RESPONSE2)-->
+  <div id="modal4" class="modal">
+    <div class="modal-content">
+      <h4>More time for personal tasks</h4>
+      <p>You finally have time to catch up on replying to personal emails and scheduling some doctors appointments. A good use of your time!</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1">Next</a>
+    </div>
+  </div> 
+  <!-- modal 5 (leaving early RESPONSE1)-->
+  <div id="modal5" class="modal">
+    <div class="modal-content">
+      <h4>Brownie points earned</h4>
+      <p>Staying until at least 5pm each day is possibly earning you brownie points with some very important people at your office. However, getting stuck in daily peak rush hour as a result might make you re-evaluate this routine in the future.</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1">Next</a>
+    </div>
+  </div>
+  <!-- modal 6 (leaving early RESPONSE2)-->
+  <div id="modal6" class="modal">
+    <div class="modal-content">
+      <h4>A cringe-worthy encounter</h4>
+      <p>As you zoom out of the parking lot, you make eye contact with the department head (your boss' boss). Hopefully they don't mention this to your boss tomorrow...</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1">Next</a>
+    </div>
+  </div>
+  </div>
+  <!-- modal 7 (after hours scenario RESPONSE1)-->
+  <div id="modal7" class="modal">
     <div class="modal-content">
       <h4>You're now "on call" 24/7</h4>
       <p>Answering a call from your boss after hours has established that you are willing/available to work for them outside of the work day... work that technically isn't getting paid because it's outside of your 9am-to-5pm hours. Yikes.</p>
@@ -100,67 +105,60 @@
       <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1">Next</a>
     </div>
   </div>
- <!-- modal 7 for count = 3 (working hard/hardly working RESPONSE2)-->
- <div id="modal7" class="modal">
-  <div class="modal-content">
-    <h4>More time for personal tasks</h4>
-    <p>You finally have time to catch up on replying to personal emails and scheduling some doctors appointments. A good use of your time!</p>
+  <!-- modal 8 (after hours scenario RESPONSE2)-->
+  <div id="modal8" class="modal">
+    <div class="modal-content">
+      <h4>Setting boundaries for the win</h4>
+      <p>Not answering the phone now is successfully setting up boundaries with your boss for later: you will no longer receive communication from them outside of work hours. Nice!</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1">Next</a>
+    </div>
   </div>
-  <div class="modal-footer">
-    <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1">Next</a>
   </div>
-</div>
- <!-- modal 8 for count = 8 (ceiling leak)-->
- <div id="modal8" class="modal">
-  <div class="modal-content">
-    <h4>Drip drip</h4>
-    <p>There's a thunderstorm outside that is causing your ceiling to leak. You'll still be able to work, but with an annoying water drip.</p>
+  <!-- modal 9 for wifi outage-->
+  <div id="modal9" class="modal">
+    <div class="modal-content">
+      <h4>Wifi outage- try again tomorrow</h4>
+      <p>The high and mighty IT department has fallen... temporarily. A building-wide wifi outage has caused all online work and phone communication to stop. After sitting around for a while, it's time to go home and try again tomorrow.</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1">Try again</a>
+    </div>
   </div>
-  <div class="modal-footer">
-    <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1">Next</a>
   </div>
-</div>
- <!-- modal 9 for count = 10 (leaving early RESPONSE1)-->
- <div id="modal9" class="modal">
-  <div class="modal-content">
-    <h4>Brownie points earned</h4>
-    <p>Staying until at least 5pm each day is possibly earning you brownie points with some very important people at your office. However, getting stuck in daily peak rush hour as a result might make you re-evaluate this routine in the future.</p>
+  <!-- modal 10 (ceiling leak)-->
+  <div id="modal10" class="modal">
+    <div class="modal-content">
+      <h4>Drip drip</h4>
+      <p>There's a thunderstorm outside that is causing your ceiling to leak. You'll still be able to work, but with an annoying water drip.</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1">Next</a>
+    </div>
   </div>
-  <div class="modal-footer">
-    <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1">Next</a>
+  <!-- modal 11 (resign RESPONSE1)-->
+  <div id="modal11" class="modal">
+    <div class="modal-content">
+      <h4>More work for you</h4>
+      <p>Since you decided to give two weeks' notice, the company is putting you in charge of hiring and training your replacement. These next two weeks will be the most work you've had to put into the job.</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1">Start over</a>
+    </div>
   </div>
-</div>
- <!-- modal 10 for count = 7 (lunch scenario RESPONSE2)-->
- <div id="modal10" class="modal">
-  <div class="modal-content">
-    <h4>Not social, not good</h4>
-    <p>I guess the only thing you like about your office is the free coffee and printing priviledges, since you don't seem interested in making friends with coworkers.</p>
+  <!-- modal 12 (resign RESPONSE2)-->
+  <div id="modal12" class="modal">
+    <div class="modal-content">
+      <h4>You're free</h4>
+      <p>Onward to bigger and better things! ...and being unemployed starting tomorrow.</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1">Start over</a>
+    </div>
   </div>
-  <div class="modal-footer">
-    <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1">Next</a>
-  </div>
-</div>
-<!-- modal 11 for count = 13 (resign RESPONSE1)-->
-<div id="modal11" class="modal">
-  <div class="modal-content">
-    <h4>More work for you</h4>
-    <p>Since you decided to give two weeks' notice, the company is putting you in charge of hiring and training your replacement. These next two weeks will be the most work you've had to put into the job.</p>
-  </div>
-  <div class="modal-footer">
-    <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1">Start over</a>
-  </div>
-</div>
-<!-- modal 12 for count = 13 (resign RESPONSE2)-->
-<div id="modal12" class="modal">
-  <div class="modal-content">
-    <h4>You're free</h4>
-    <p>Onward to bigger and better things! ...and being unemployed starting tomorrow.</p>
-  </div>
-  <div class="modal-footer">
-    <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1">Start over</a>
-  </div>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="js/main.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="js/main.js"></script>           
 </body>
 </html>

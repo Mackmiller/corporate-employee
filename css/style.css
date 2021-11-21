@@ -45,13 +45,25 @@ p {
     height: 200px;
 }
 
-#start {
-    margin-top: 5px;
+
+.excellent {
+    color: green;
 }
 
+.mediocre {
+    color: #DAA739;
+}
+
+.poor {
+    color: red;
+}
+
+/* #start {
+    margin-top: 5px;
+} */
+
 #response1, #response2 {
-    padding: 5px 0;
-    display: none;
+    padding: 5px 0; 
 }
 
 body.hasHover #response1:hover {
@@ -62,15 +74,6 @@ body.hasHover #response1:hover {
 body.hasHover #response2:hover {
     cursor: pointer;
     background-color: #b2dfdb;
-}
-
-#restart, #resign {
-    margin-top: 15px;
-    display: none;
-}
-
-#restartform, #resignform {
-    display: none;
 }
 
 @media only screen and (min-width:150px) and (max-width:600px){
@@ -114,14 +117,4 @@ body.hasHover #response2:hover {
         font-size: 20px;
         font-weight: 700;
     }
-    #start {
-        margin-bottom: 10px;
-    }
-    #restart {
-        margin-right: 5px;
-    }
-    #resign {
-        margin-left: 5px;
-    }
-
 }
