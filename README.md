@@ -54,7 +54,10 @@ I like to have a set of colored stick notes that represent the user's interactio
 
 ### Deployment
 
-- the game is accessible and ready to play [here](https://mackmiller.github.io/corporate-employee/?#!)
+- the game is accessible and ready to play [here](https://mackmiller.github.io/corporate-employee/)
+
+- sample deployment:
+<img alt="Project Preview" src="imgs/example.png" />
 
 ### Contributors
 
