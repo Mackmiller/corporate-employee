@@ -14,6 +14,7 @@ Navigate your way through a series of corporate cliches for each hour of the 9am
 
 - HTML, Javascript
 - Materialize CSS/JS
+- Angular JS
 
 ### Wireframes
 
