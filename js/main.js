@@ -490,20 +490,20 @@ const Game = () => {
 }
 //ignore response div hover effect for mobile devices
 //still exploring this option
-function watchForHover() {
+watchForHover = () => {
     // ignoring emulated mousemove events
     let lastTouchTime = 0
     //display hover div style (desktop)
-    function enableHover() {
+    const enableHover = () => {
         if (new Date() - lastTouchTime < 500) return 
         document.body.classList.add('hasHover')
     }
     //disable hover div style
-    function disableHover() {
+    const disableHover = () => {
         document.body.classList.remove('hasHover')
     }
     //occurs right after touchstart
-    function updateLastTouchTime() {
+    const updateLastTouchTime = () => {
         lastTouchTime = new Date()
     }
     //when user touches an element (mobile)
@@ -520,7 +520,7 @@ document.addEventListener ("DOMContentLoaded", () => {
     response2.style.display = "none"
     //still exploring this option:
     watchForHover()
-    Start = function Start() {
+    Start = Start = () => {
         Game()
         console.log("game started");   
     }
