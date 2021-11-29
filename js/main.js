@@ -39,6 +39,9 @@ let number = 0
 let number2 = 0
 //actual game function
 const Game = () => {
+    //show response divs
+    response1.style.display = ""
+    response2.style.display = ""
     //clock
     const hourRotation = (hour) => {
         let hourDegree = (hour/12) * 360
@@ -486,6 +489,7 @@ const Game = () => {
     beginning()
 }
 //ignore response div hover effect for mobile devices
+//still exploring this option
 function watchForHover() {
     // ignoring emulated mousemove events
     let lastTouchTime = 0
@@ -511,9 +515,13 @@ function watchForHover() {
   }
 
 document.addEventListener ("DOMContentLoaded", () => {
+    //hide response divs until game starts
+    response1.style.display = "none"
+    response2.style.display = "none"
+    //still exploring this option:
+    watchForHover()
     Start = function Start() {
-        Game();
-        watchForHover()
+        Game()
         console.log("game started");   
     }
 })
