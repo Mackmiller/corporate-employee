@@ -519,7 +519,7 @@ document.addEventListener ("DOMContentLoaded", () => {
     response1.style.display = "none"
     response2.style.display = "none"
     //still exploring this option:
-    //watchForHover()
+    watchForHover()
     Start = function Start() {
         Game()
         console.log("game started");   
